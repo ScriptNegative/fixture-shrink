@@ -3,3 +3,5 @@
 examples/catalog/input.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Evaluation snapshots retain their recorded file hashes byte for byte.
 evals/runs/catalog-fix/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve the exact evidence bytes used by the text-reduction evaluation.
+evals/runs/strings-forward/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -1,0 +1,42 @@
+{
+  "algorithm": "SHA-256",
+  "files": [
+    {
+      "file": "input.json",
+      "initial_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+      "original_final_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+      "scratch_final_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+      "original_unchanged": true,
+      "scratch_unchanged": true
+    },
+    {
+      "file": "check.mjs",
+      "initial_sha256": "bb94d321618b225d412f0823bc995a3b45eafbb276abad35d840d6d4823cfd73",
+      "original_final_sha256": "bb94d321618b225d412f0823bc995a3b45eafbb276abad35d840d6d4823cfd73",
+      "scratch_final_sha256": "bb94d321618b225d412f0823bc995a3b45eafbb276abad35d840d6d4823cfd73",
+      "original_unchanged": true,
+      "scratch_unchanged": true
+    },
+    {
+      "file": "oracle.json",
+      "initial_sha256": "488a1dbd6865c96a41ad5e85b66523285bb51524caacca01b597c9194995dadf",
+      "original_final_sha256": "488a1dbd6865c96a41ad5e85b66523285bb51524caacca01b597c9194995dadf",
+      "scratch_final_sha256": "488a1dbd6865c96a41ad5e85b66523285bb51524caacca01b597c9194995dadf",
+      "original_unchanged": true,
+      "scratch_unchanged": true
+    },
+    {
+      "file": "service.mjs",
+      "initial_sha256": "cb811e2c3f6b78e98a60b6db315d345816681003571d2383bd6f0729d19f2ced",
+      "original_final_sha256": "cb811e2c3f6b78e98a60b6db315d345816681003571d2383bd6f0729d19f2ced",
+      "scratch_final_sha256": "e55a91215e8d04e74a968c651397b3fd85abf94d03d8c6e12c6bb75af95064eb",
+      "original_unchanged": true,
+      "scratch_unchanged": false
+    }
+  ],
+  "buggy_service_backup": {
+    "path": "examples/message/service.before.mjs",
+    "sha256": "cb811e2c3f6b78e98a60b6db315d345816681003571d2383bd6f0729d19f2ced",
+    "matches_initial": true
+  }
+}

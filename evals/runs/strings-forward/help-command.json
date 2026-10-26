@@ -1,0 +1,12 @@
+{
+  "command": [
+    "node",
+    "../fixture-shrink/skills/fixture-shrink/scripts/shrink.mjs",
+    "--help"
+  ],
+  "cwd": ".",
+  "exit_code": 0,
+  "duration_ms": 80.982,
+  "stdout": "Usage: node shrink.mjs <input.json> --oracle <oracle.json> --out <new-directory> [--max-runs N] [--shrink-strings]\n",
+  "stderr": ""
+}

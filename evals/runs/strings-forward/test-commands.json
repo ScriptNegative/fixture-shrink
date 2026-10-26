@@ -1,0 +1,95 @@
+{
+  "node_version": "v22.14.0",
+  "records": [
+    {
+      "label": "before-fix-regressions",
+      "command": [
+        "node",
+        "--test",
+        "tests/service.test.mjs"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "signal": null,
+      "error": null,
+      "duration_ms": 374.553,
+      "stdout": "TAP version 13\n# Subtest: ordinary content\nok 1 - ordinary content\n  ---\n  duration_ms: 1.383\n  ...\n# Subtest: internal delimiters\nnot ok 2 - internal delimiters\n  ---\n  duration_ms: 1.1131\n  location: '.\\\\tests\\\\service.test.mjs:21:3'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    + actual - expected\n    \n    + 'part one'\n    - 'part one:part two:part three'\n               ^\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 'part one:part two:part three'\n  actual: 'part one'\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (./tests/service.test.mjs:21:24)\n    Test.runInAsyncScope (node:async_hooks:211:14)\n    Test.run (node:internal/test_runner/test:979:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:677:18)\n    Test.postRun (node:internal/test_runner/test:1090:19)\n    Test.run (node:internal/test_runner/test:1018:12)\n    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)\n  ...\n# Subtest: only a delimiter as content\nnot ok 3 - only a delimiter as content\n  ---\n  duration_ms: 0.2952\n  location: '.\\\\tests\\\\service.test.mjs:21:3'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    \n    '' !== ':'\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: ':'\n  actual: ''\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (./tests/service.test.mjs:21:24)\n    Test.runInAsyncScope (node:async_hooks:211:14)\n    Test.run (node:internal/test_runner/test:979:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:677:18)\n    Test.postRun (node:internal/test_runner/test:1090:19)\n    Test.run (node:internal/test_runner/test:1018:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)\n  ...\n# Subtest: content starts with a delimiter\nnot ok 4 - content starts with a delimiter\n  ---\n  duration_ms: 0.1624\n  location: '.\\\\tests\\\\service.test.mjs:21:3'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    \n    '' !== ':tail'\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: ':tail'\n  actual: ''\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (./tests/service.test.mjs:21:24)\n    Test.runInAsyncScope (node:async_hooks:211:14)\n    Test.run (node:internal/test_runner/test:979:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:677:18)\n    Test.postRun (node:internal/test_runner/test:1090:19)\n    Test.run (node:internal/test_runner/test:1018:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)\n  ...\n# Subtest: content ends with a delimiter\nnot ok 5 - content ends with a delimiter\n  ---\n  duration_ms: 0.1489\n  location: '.\\\\tests\\\\service.test.mjs:21:3'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    \n    'tail' !== 'tail:'\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 'tail:'\n  actual: 'tail'\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (./tests/service.test.mjs:21:24)\n    Test.runInAsyncScope (node:async_hooks:211:14)\n    Test.run (node:internal/test_runner/test:979:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:677:18)\n    Test.postRun (node:internal/test_runner/test:1090:19)\n    Test.run (node:internal/test_runner/test:1018:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)\n  ...\n# Subtest: consecutive delimiters\nnot ok 6 - consecutive delimiters\n  ---\n  duration_ms: 0.212\n  location: '.\\\\tests\\\\service.test.mjs:21:3'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    \n    '' !== ':::'\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: ':::'\n  actual: ''\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (./tests/service.test.mjs:21:24)\n    Test.runInAsyncScope (node:async_hooks:211:14)\n    Test.run (node:internal/test_runner/test:979:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:677:18)\n    Test.postRun (node:internal/test_runner/test:1090:19)\n    Test.run (node:internal/test_runner/test:1018:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)\n  ...\n# Subtest: Unicode and combining marks around delimiters\nnot ok 7 - Unicode and combining marks around delimiters\n  ---\n  duration_ms: 0.2602\n  location: '.\\\\tests\\\\service.test.mjs:21:3'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    + actual - expected\n    \n    + '😀 é 漢字'\n    - '😀 é 漢字:🚀:fin'\n               ^\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: '😀 é 漢字:🚀:fin'\n  actual: '😀 é 漢字'\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (./tests/service.test.mjs:21:24)\n    Test.runInAsyncScope (node:async_hooks:211:14)\n    Test.run (node:internal/test_runner/test:979:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:677:18)\n    Test.postRun (node:internal/test_runner/test:1090:19)\n    Test.run (node:internal/test_runner/test:1018:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)\n  ...\n# Subtest: newlines and whitespace around delimiters\nnot ok 8 - newlines and whitespace around delimiters\n  ---\n  duration_ms: 0.1935\n  location: '.\\\\tests\\\\service.test.mjs:21:3'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    + actual - expected\n    \n    + ' first\\n'\n    - ' first\\n: second \\n'\n               ^\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: |-\n     first\n    : second \n    \n  actual: |-\n     first\n    \n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (./tests/service.test.mjs:21:24)\n    Test.runInAsyncScope (node:async_hooks:211:14)\n    Test.run (node:internal/test_runner/test:979:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:677:18)\n    Test.postRun (node:internal/test_runner/test:1090:19)\n    Test.run (node:internal/test_runner/test:1018:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)\n  ...\n# Subtest: unchanged checker accepts examples/message/input.json\nnot ok 9 - unchanged checker accepts examples/message/input.json\n  ---\n  duration_ms: 68.465\n  location: '.\\\\tests\\\\service.test.mjs:25:3'\n  failureType: 'testCodeFailure'\n  error: |-\n    REPRO: truncated-message\n    \n    \n    1 !== 0\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 0\n  actual: 1\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (./tests/service.test.mjs:28:12)\n    Test.runInAsyncScope (node:async_hooks:211:14)\n    Test.run (node:internal/test_runner/test:979:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:677:18)\n    Test.postRun (node:internal/test_runner/test:1090:19)\n    Test.run (node:internal/test_runner/test:1018:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)\n  ...\n# Subtest: unchanged checker accepts results/default/reduced.json\nnot ok 10 - unchanged checker accepts results/default/reduced.json\n  ---\n  duration_ms: 65.1185\n  location: '.\\\\tests\\\\service.test.mjs:25:3'\n  failureType: 'testCodeFailure'\n  error: |-\n    REPRO: truncated-message\n    \n    \n    1 !== 0\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 0\n  actual: 1\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (./tests/service.test.mjs:28:12)\n    Test.runInAsyncScope (node:async_hooks:211:14)\n    Test.run (node:internal/test_runner/test:979:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:677:18)\n    Test.postRun (node:internal/test_runner/test:1090:19)\n    Test.run (node:internal/test_runner/test:1018:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)\n  ...\n# Subtest: unchanged checker accepts results/strings-final/reduced.json\nnot ok 11 - unchanged checker accepts results/strings-final/reduced.json\n  ---\n  duration_ms: 63.1988\n  location: '.\\\\tests\\\\service.test.mjs:25:3'\n  failureType: 'testCodeFailure'\n  error: |-\n    REPRO: truncated-message\n    \n    \n    1 !== 0\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 0\n  actual: 1\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (./tests/service.test.mjs:28:12)\n    Test.runInAsyncScope (node:async_hooks:211:14)\n    Test.run (node:internal/test_runner/test:979:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:677:18)\n    Test.postRun (node:internal/test_runner/test:1090:19)\n    Test.run (node:internal/test_runner/test:1018:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)\n  ...\n# Subtest: input, checker and supplied oracle retain their initial bytes\nok 12 - input, checker and supplied oracle retain their initial bytes\n  ---\n  duration_ms: 2.3511\n  ...\n1..12\n# tests 12\n# suites 0\n# pass 2\n# fail 10\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 313.2741\n",
+      "stderr": ""
+    },
+    {
+      "label": "after-fix-regressions",
+      "command": [
+        "node",
+        "--test",
+        "tests/service.test.mjs"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "duration_ms": 404.806,
+      "stdout": "TAP version 13\n# Subtest: ordinary content\nok 1 - ordinary content\n  ---\n  duration_ms: 1.1552\n  ...\n# Subtest: internal delimiters\nok 2 - internal delimiters\n  ---\n  duration_ms: 0.1111\n  ...\n# Subtest: only a delimiter as content\nok 3 - only a delimiter as content\n  ---\n  duration_ms: 0.0906\n  ...\n# Subtest: content starts with a delimiter\nok 4 - content starts with a delimiter\n  ---\n  duration_ms: 0.0932\n  ...\n# Subtest: content ends with a delimiter\nok 5 - content ends with a delimiter\n  ---\n  duration_ms: 0.1635\n  ...\n# Subtest: consecutive delimiters\nok 6 - consecutive delimiters\n  ---\n  duration_ms: 0.0815\n  ...\n# Subtest: Unicode and combining marks around delimiters\nok 7 - Unicode and combining marks around delimiters\n  ---\n  duration_ms: 0.1524\n  ...\n# Subtest: newlines and whitespace around delimiters\nok 8 - newlines and whitespace around delimiters\n  ---\n  duration_ms: 0.0743\n  ...\n# Subtest: unchanged checker accepts examples/message/input.json\nok 9 - unchanged checker accepts examples/message/input.json\n  ---\n  duration_ms: 72.9195\n  ...\n# Subtest: unchanged checker accepts results/default/reduced.json\nok 10 - unchanged checker accepts results/default/reduced.json\n  ---\n  duration_ms: 76.4563\n  ...\n# Subtest: unchanged checker accepts results/strings-final/reduced.json\nok 11 - unchanged checker accepts results/strings-final/reduced.json\n  ---\n  duration_ms: 79.8506\n  ...\n# Subtest: input, checker and supplied oracle retain their initial bytes\nok 12 - input, checker and supplied oracle retain their initial bytes\n  ---\n  duration_ms: 2.0582\n  ...\n1..12\n# tests 12\n# suites 0\n# pass 12\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 340.0281\n",
+      "stderr": ""
+    },
+    {
+      "label": "after-fix-examples/message/input.json",
+      "command": [
+        "node",
+        "examples/message/check.mjs",
+        "examples/message/input.json"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "duration_ms": 104.582,
+      "stdout": "PASS: all content after the first delimiter is preserved\n",
+      "stderr": ""
+    },
+    {
+      "label": "after-fix-results/default/reduced.json",
+      "command": [
+        "node",
+        "examples/message/check.mjs",
+        "results/default/reduced.json"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "duration_ms": 69.508,
+      "stdout": "PASS: all content after the first delimiter is preserved\n",
+      "stderr": ""
+    },
+    {
+      "label": "after-fix-results/strings/reduced.json",
+      "command": [
+        "node",
+        "examples/message/check.mjs",
+        "results/strings/reduced.json"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "duration_ms": 64.535,
+      "stdout": "PASS: all content after the first delimiter is preserved\n",
+      "stderr": ""
+    },
+    {
+      "label": "after-fix-results/strings-final/reduced.json",
+      "command": [
+        "node",
+        "examples/message/check.mjs",
+        "results/strings-final/reduced.json"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "duration_ms": 65.491,
+      "stdout": "PASS: all content after the first delimiter is preserved\n",
+      "stderr": ""
+    }
+  ]
+}

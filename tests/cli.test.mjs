@@ -161,3 +161,76 @@ test('CLI validates flags, exits distinctly for baseline rejection, and keeps st
     assert.equal(JSON.parse(rejected.stdout).verified,false);
   });
 });
+
+test('opt-in string mode reduces a real delimiter bug while structural defaults leave the message intact',async()=>{
+  await fixture(async({directory,input,oraclePath,program,out,config})=>{
+    const message='note:noise😀more text:trailing content';
+    await writeFile(program,`import{readFileSync}from'node:fs';try{const d=JSON.parse(readFileSync(process.argv[2],'utf8'));if(d.schemaVersion!==1||typeof d.message!=='string'||!d.message.startsWith('note:')||d.message.length<=5){console.error('VALIDATION: invalid envelope');process.exit(1)}if(d.message.split(':')[1]!==d.message.slice(5)){console.error('REPRO: collision');process.exit(1)}}catch(e){console.error('VALIDATION: '+e.message);process.exit(1)}`);
+    await writeFile(input,JSON.stringify({schemaVersion:1,message,noise:{remove:'extra text'}}));
+    const original=await readFile(input);
+    const structural=await shrinkFile(input,oraclePath,path.join(directory,'structural'),{maxRuns:100});
+    assert.equal(structural.verified,true);
+    assert.deepEqual(structural.reduction_options,{shrink_strings:false});
+    assert.equal(JSON.parse(await readFile(path.join(directory,'structural','reduced.json'),'utf8')).message,message);
+    const report=await shrinkFile(input,oraclePath,out,{maxRuns:250,shrinkStrings:true});
+    assert.equal(report.verified,true);
+    assert.equal(report.status,'reduced');
+    assert.equal(report.version,'0.2.0');
+    assert.deepEqual(report.reduction_options,{shrink_strings:true});
+    assert.equal(JSON.parse(await readFile(path.join(out,'reduced.json'),'utf8')).message,'note::');
+    assert.ok(report.reduction.trace.some(item=>item.operation.startsWith('remove_string_chunks[')&&item.accepted));
+    assert.equal(report.final_confirmations,2);
+    assert.ok(report.runs.length<=250);
+    assert.deepEqual(await readFile(input),original);
+    assert.match(await readFile(path.join(out,'report.md'),'utf8'),/String-value reduction: enabled/);
+  });
+});
+
+test('standalone CLI string flag accepts either position and rejects duplicates or a value',async()=>{
+  await fixture(async({directory,input,oraclePath,out})=>{
+    const command=args=>spawnSync(process.execPath,[cli,...args],{cwd:directory,encoding:'utf8'});
+    for(const args of [
+      [input,'--shrink-strings','false','--oracle',oraclePath,'--out',out],
+      [input,'--oracle',oraclePath,'--out',out,'--shrink-strings','--shrink-strings'],
+      [input,'--shrink-strings=true','--oracle',oraclePath,'--out',out]
+    ]) {
+      const result=command(args);
+      assert.equal(result.status,1,result.stderr);
+      assert.equal(result.stdout,'');
+    }
+    for(const [index,args]of[
+      [input,'--shrink-strings','--oracle',oraclePath,'--out',path.join(directory,'first'),'--max-runs','6'],
+      [input,'--oracle',oraclePath,'--out',path.join(directory,'last'),'--max-runs','6','--shrink-strings']
+    ].entries()) {
+      const result=command(args);
+      assert.equal(result.status,0,result.stderr);
+      const report=JSON.parse(await readFile(path.join(directory,index===0?'first':'last','report.json'),'utf8'));
+      assert.equal(report.reduction_options.shrink_strings,true);
+      assert.equal(report.runs.length,6);
+    }
+  });
+});
+
+test('invalid string-mode API options fail before output creation or command execution',async()=>{
+  await fixture(async({input,oraclePath,out})=>{
+    for(const shrinkStrings of [null,'true',1,[]])await assert.rejects(shrinkFile(input,oraclePath,out,{shrinkStrings}),/boolean/);
+    await assert.rejects(access(out));
+  });
+});
+
+test('a missing output parent gives actionable guidance before the oracle can run',async()=>{
+  await fixture(async({directory,input,oraclePath,program,config})=>{
+    const marker=path.join(directory,'oracle-was-run.txt');
+    await writeFile(program,`import{writeFileSync}from'node:fs';writeFileSync(process.argv[3],'ran');console.error('REPRO: collision');process.exit(1)`);
+    await writeFile(oraclePath,JSON.stringify({...config,command:[process.execPath,program,'{input}',marker]}));
+    const missing=path.join(directory,'missing-parent');
+    const out=path.join(missing,'result');
+    const result=spawnSync(process.execPath,[cli,input,'--oracle',oraclePath,'--out',out],{cwd:directory,encoding:'utf8'});
+    assert.equal(result.status,1);
+    assert.equal(result.stdout,'');
+    assert.match(result.stderr,/Output parent must already exist/);
+    assert.match(result.stderr,/Create it first/);
+    await assert.rejects(access(missing));
+    await assert.rejects(access(marker));
+  });
+});

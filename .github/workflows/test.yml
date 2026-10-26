@@ -26,3 +26,5 @@ jobs:
       - run: npm test
       - name: Replay the saved catalog fix
         run: node --test evals/runs/catalog-fix/regression.test.mjs
+      - name: Replay the saved message fix
+        run: node --test evals/runs/strings-forward/tests/service.test.mjs

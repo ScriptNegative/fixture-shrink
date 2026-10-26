@@ -33,3 +33,20 @@ The root suite has 41 tests covering the pure reducer, protected JSON pointers, 
 Independent review found a temporary-path replacement defect before publication: an oracle-created hardlink could make a subsequent helper write reach the original input. Fresh exclusive candidates plus file-identity/link/content checks fixed it. The original probe now rejects the first attempt and preserves source bytes, and a regression test covers it.
 
 Two matching runs provide repeat observations, not proof of determinism, identical root cause, or a global minimum. No token, cost, or end-to-end productivity benefit was measured. Other hosts' live discovery and invocation have not been exercised. The helper does not isolate the oracle, snapshot application code/environment, remove secrets, or guarantee termination of escaped descendant processes.
+
+## 0.2.0: optional string reduction
+
+The new `--shrink-strings` mode was exercised by a fresh-context evaluator using only the skill, CLI reference, and raw message-decoder fixture. The default and string-enabled runs both had a 400-attempt budget:
+
+| Mode | Original | Verified result | Oracle attempts |
+| --- | ---: | ---: | ---: |
+| Default structural reductions | 4,007 bytes | 2,760 bytes | 10 |
+| Optional string reductions | 4,007 bytes | 48 bytes | 117 |
+
+Both final replays matched `REPRO: truncated-message`, and `/schemaVersion` was preserved. The original text value remained unchanged in default mode; optional mode reduced the message to `note::`. These single-fixture byte counts demonstrate the additional reduction capability. The string run used more oracle invocations; no general speed or cost saving is implied.
+
+The evaluator added 12 service/checker/preservation checks. Ten failed and two passed before fixing the scratch decoder; all 12 passed after it retained everything after the first delimiter. Original source, input, checker, and oracle files were unchanged. See the [full evaluation](runs/strings-forward/evaluation.md), [records](runs/strings-forward/records.json), and saved fixed service/tests. An initial missing-output-parent error and machine-specific paths in reports were recorded, leading to clearer diagnostics and sharing instructions before publication.
+
+The root product suite now has 51 cases. On Windows with Node v22.14.0, 50 passed and the POSIX signal fixture skipped; saved catalog and message implementations add 4 and 12 replay checks. CI runs them on Linux Node 18/22 and Windows Node 22. A separate bounded comparison found identical default `minimize()` results and traces to 0.1.0 across 200 deterministic cases; it does not exhaust all inputs.
+
+String deletion works in Unicode code points, not grapheme clusters, and does not normalize Unicode. Keys, numbers, booleans, and null values are not rewritten. Protected subtrees remain unchanged, and both modes use the same baseline, candidate-confirmation, final-replay, file-integrity, and total-run-budget gates. Live host discovery and performance comparisons remain untested.

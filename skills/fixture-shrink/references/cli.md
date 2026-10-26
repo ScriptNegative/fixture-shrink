@@ -5,11 +5,13 @@ Use this reference when executing or adapting the bundled helper. It requires No
 ## Command
 
 ```text
-node <skill-directory>/scripts/shrink.mjs <input.json> --oracle <oracle.json> --out <new-directory> [--max-runs N]
+node <skill-directory>/scripts/shrink.mjs <input.json> --oracle <oracle.json> --out <new-directory> [--max-runs N] [--shrink-strings]
 node <skill-directory>/scripts/shrink.mjs --help
 ```
 
-`--out` must name a new directory. Keep it outside the source fixture and choose another name for each run. The original JSON is never the output target. `--max-runs` defaults to 80 and accepts integers from 6 to 10000. It counts oracle invocation attempts, including baselines, rejected candidates, and final replays. Failed process starts consume attempts too.
+`--out` must name a new directory whose parent already exists. Keep it outside the source fixture and choose another name for each run. For a nested destination such as `results/repro`, create `results` first (for example, `mkdir results`), then use the new `results/repro` leaf. An existing output directory is never reused, and the original JSON is never the output target. `--max-runs` defaults to 80 and accepts integers from 6 to 10000. It counts oracle invocation attempts, including baselines, rejected candidates, and final replays. Failed process starts consume attempts too.
+
+`--shrink-strings` is a standalone flag with no value. It enables deletion of chunks inside string values as well as the default object-member and array-item deletions. Place it before or after the other flags; duplicates and forms such as `--shrink-strings true` are rejected. Without it, the v0.1 structural strategy and scalar contents are unchanged.
 
 Input must be a UTF-8 JSON file no larger than 1 MiB; the oracle configuration must be no larger than 64 KiB. A leading UTF-8 BOM is accepted. Invalid UTF-8 is rejected.
 
@@ -53,10 +55,14 @@ JSON pointer examples: `/schemaVersion`, `/request/method`, `/items/0/id`. Escap
 
 1. Run a copy of the original bytes twice and require the specified signature both times.
 2. Parse and serialize JSON; run that normalized input twice. Stop if formatting or duplicate-key normalization changes the observed failure.
-3. Try removing object members and chunks of arrays. Keep a smaller candidate only after two matching executions. Keep protected values unchanged.
+3. Try removing object members and chunks of arrays. If string mode is enabled, also try removing chunks of Unicode code points from string values. Keep a smaller candidate only after two matching executions. Keep protected values unchanged.
 4. Replay the final selected candidate twice before writing `reduced.json`.
 
-There is no scalar simplification: strings, numbers, booleans, and null values are not rewritten. Numbers outside JavaScript's safe integer range and nonfinite numeric results are rejected to avoid silently changing their values. Whitespace and duplicate object keys do not survive normalization; this is unsuitable for reducing a JSON parser's formatting or duplicate-key bug.
+String values stay unchanged unless `--shrink-strings` is set. String mode deletes code points without splitting a valid UTF-16 surrogate pair. It does not normalize Unicode or guarantee grapheme-cluster boundaries: a combining mark or part of a joined emoji can be removed independently. String-valued roots are supported. Object keys, numbers, booleans, null values, and JSON types are never rewritten. Protected strings and protected subtrees retain their exact original values and are skipped before string-candidate enumeration.
+
+String candidates use deterministic partitions from large chunks down to individual code points. After accepting a change, traversal restarts from the root. The search can stop at its budget or after finding no accepted candidate among its supported deletions; neither outcome establishes a global minimum.
+
+Numbers outside JavaScript's safe integer range and nonfinite numeric results are rejected to avoid silently changing their values. Whitespace and duplicate object keys do not survive normalization; this is unsuitable for reducing a JSON parser's formatting or duplicate-key bug.
 
 Matching the signature is an observation, not evidence that every failure has the same underlying cause. Choose a precise oracle and inspect the result. Two repetitions catch some instability; they do not establish determinism.
 
@@ -64,7 +70,15 @@ Matching the signature is an observation, not evidence that every failure has th
 
 The output directory contains `report.json` and `report.md` with the actual attempts. A verified run also writes `reduced.json`. An unstable final candidate or changed source may leave `candidate.json`, which is explicitly unverified. Inspect the status and final replay evidence before reusing it. Errors discovered before the output directory is created do not produce a report.
 
-The JSON report includes source and result sizes and hashes, normalized size, the working directory, oracle settings, ordered run observations, and a reduction trace. Each observation records its phase, verdict, exit code, timeout and output-limit flags, duration, and bounded output previews. Previews are limited to 2048 JavaScript characters per stream; the matcher uses the complete captured output within the configured byte limit.
+The JSON report includes source and result sizes and hashes, normalized size, the working directory, oracle settings, ordered run observations, and a reduction trace. `reduction_options.shrink_strings` records the selected mode; string trace entries use `remove_string_chunks[start:end]`, with code-point indexes and the JSON pointer of the string value. Each observation records its phase, verdict, exit code, timeout and output-limit flags, duration, and bounded output previews. Previews are limited to 2048 JavaScript characters per stream; the matcher uses the complete captured output within the configured byte limit.
+
+Reports and the stdout summary record absolute local paths, including the source path, working directory, and output location. Replace private machine-specific prefixes before publishing evidence; inspect command arguments, output previews, and fixtures too. The helper does not sanitize sharing copies automatically.
+
+## In-memory and file APIs
+
+`reduce.mjs` exports `minimize(input, {test, maxCandidates, preserve, shrinkStrings: false})`. Its asynchronous `test(candidate, metadata)` returns `interesting`, `uninteresting`, `unresolved`, or `stop`. `maxCandidates` counts callback invocations rather than process runs; the CLI separately enforces the complete process budget. Inputs and callback candidates do not alias the reducer's internal accepted state.
+
+`shrink.mjs` exports `shrinkFile(inputPath, oraclePath, outputPath, {maxRuns: 80, cwd: process.cwd(), shrinkStrings: false})`. `shrinkStrings` must be a boolean in either API. The file helper retains the same repeated baseline, candidate confirmation, final replay, source preservation, and output-integrity checks in both modes.
 
 | Exit | Meaning |
 | --- | --- |
