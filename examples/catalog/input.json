@@ -1,0 +1,532 @@
+{
+  "schemaVersion": 1,
+  "store": {
+    "name": "Workshop Demo",
+    "currency": "EUR",
+    "region": "example-only",
+    "description": "A synthetic product catalog, containing no customer data."
+  },
+  "products": [
+    {
+      "sku": "CAT-001",
+      "name": "Workshop component 1",
+      "price_cents": 1200,
+      "inventory": {
+        "available": 2,
+        "warehouse": "Zone-1"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-002",
+      "name": "Workshop component 2",
+      "price_cents": 1325,
+      "inventory": {
+        "available": 5,
+        "warehouse": "Zone-2"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-003",
+      "name": "Workshop component 3",
+      "price_cents": 1450,
+      "inventory": {
+        "available": 8,
+        "warehouse": "Zone-3"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-004",
+      "name": "Workshop component 4",
+      "price_cents": 1575,
+      "inventory": {
+        "available": 11,
+        "warehouse": "Zone-4"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-005",
+      "name": "Workshop component 5",
+      "price_cents": 1700,
+      "inventory": {
+        "available": 14,
+        "warehouse": "Zone-1"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-006",
+      "name": "Workshop component 6",
+      "price_cents": 1825,
+      "inventory": {
+        "available": 17,
+        "warehouse": "Zone-2"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "USB-C-001",
+      "name": "USB-C cable",
+      "price_cents": 1499,
+      "inventory": {
+        "available": 25,
+        "warehouse": "Zone-2"
+      },
+      "tags": [
+        "cable",
+        "usb"
+      ],
+      "description": "A cable with its original case-sensitive SKU."
+    },
+    {
+      "sku": "CAT-007",
+      "name": "Workshop component 7",
+      "price_cents": 1950,
+      "inventory": {
+        "available": 20,
+        "warehouse": "Zone-3"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-008",
+      "name": "Workshop component 8",
+      "price_cents": 2075,
+      "inventory": {
+        "available": 23,
+        "warehouse": "Zone-4"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-009",
+      "name": "Workshop component 9",
+      "price_cents": 2200,
+      "inventory": {
+        "available": 26,
+        "warehouse": "Zone-1"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-010",
+      "name": "Workshop component 10",
+      "price_cents": 2325,
+      "inventory": {
+        "available": 29,
+        "warehouse": "Zone-2"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-011",
+      "name": "Workshop component 11",
+      "price_cents": 2450,
+      "inventory": {
+        "available": 32,
+        "warehouse": "Zone-3"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-012",
+      "name": "Workshop component 12",
+      "price_cents": 2575,
+      "inventory": {
+        "available": 35,
+        "warehouse": "Zone-4"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-013",
+      "name": "Workshop component 13",
+      "price_cents": 2700,
+      "inventory": {
+        "available": 38,
+        "warehouse": "Zone-1"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-014",
+      "name": "Workshop component 14",
+      "price_cents": 2825,
+      "inventory": {
+        "available": 41,
+        "warehouse": "Zone-2"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-015",
+      "name": "Workshop component 15",
+      "price_cents": 2950,
+      "inventory": {
+        "available": 44,
+        "warehouse": "Zone-3"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-016",
+      "name": "Workshop component 16",
+      "price_cents": 3075,
+      "inventory": {
+        "available": 47,
+        "warehouse": "Zone-4"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-017",
+      "name": "Workshop component 17",
+      "price_cents": 3200,
+      "inventory": {
+        "available": 50,
+        "warehouse": "Zone-1"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-018",
+      "name": "Workshop component 18",
+      "price_cents": 3325,
+      "inventory": {
+        "available": 53,
+        "warehouse": "Zone-2"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-019",
+      "name": "Workshop component 19",
+      "price_cents": 3450,
+      "inventory": {
+        "available": 56,
+        "warehouse": "Zone-3"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-020",
+      "name": "Workshop component 20",
+      "price_cents": 3575,
+      "inventory": {
+        "available": 59,
+        "warehouse": "Zone-4"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-021",
+      "name": "Workshop component 21",
+      "price_cents": 3700,
+      "inventory": {
+        "available": 62,
+        "warehouse": "Zone-1"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-022",
+      "name": "Workshop component 22",
+      "price_cents": 3825,
+      "inventory": {
+        "available": 65,
+        "warehouse": "Zone-2"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-023",
+      "name": "Workshop component 23",
+      "price_cents": 3950,
+      "inventory": {
+        "available": 68,
+        "warehouse": "Zone-3"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-024",
+      "name": "Workshop component 24",
+      "price_cents": 4075,
+      "inventory": {
+        "available": 71,
+        "warehouse": "Zone-4"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-025",
+      "name": "Workshop component 25",
+      "price_cents": 4200,
+      "inventory": {
+        "available": 74,
+        "warehouse": "Zone-1"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-026",
+      "name": "Workshop component 26",
+      "price_cents": 4325,
+      "inventory": {
+        "available": 77,
+        "warehouse": "Zone-2"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": " usb-c-001 ",
+      "name": "USB adapter",
+      "price_cents": 2499,
+      "inventory": {
+        "available": 12,
+        "warehouse": "Zone-3"
+      },
+      "tags": [
+        "adapter",
+        "usb"
+      ],
+      "description": "A different product with a distinct raw identifier."
+    },
+    {
+      "sku": "CAT-027",
+      "name": "Workshop component 27",
+      "price_cents": 4450,
+      "inventory": {
+        "available": 80,
+        "warehouse": "Zone-3"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-028",
+      "name": "Workshop component 28",
+      "price_cents": 4575,
+      "inventory": {
+        "available": 83,
+        "warehouse": "Zone-4"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-029",
+      "name": "Workshop component 29",
+      "price_cents": 4700,
+      "inventory": {
+        "available": 86,
+        "warehouse": "Zone-1"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-030",
+      "name": "Workshop component 30",
+      "price_cents": 4825,
+      "inventory": {
+        "available": 89,
+        "warehouse": "Zone-2"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-031",
+      "name": "Workshop component 31",
+      "price_cents": 4950,
+      "inventory": {
+        "available": 92,
+        "warehouse": "Zone-3"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    },
+    {
+      "sku": "CAT-032",
+      "name": "Workshop component 32",
+      "price_cents": 5075,
+      "inventory": {
+        "available": 95,
+        "warehouse": "Zone-4"
+      },
+      "tags": [
+        "sample",
+        "catalog",
+        "workshop"
+      ],
+      "description": "A sample catalog product used to demonstrate reducing an observed failure."
+    }
+  ],
+  "importMetadata": {
+    "batch": "demo-catalog-001",
+    "source": "local synthetic fixture",
+    "notes": [
+      "Unrelated metadata is intentionally included to make the failing input harder to inspect.",
+      "The example validates required fields so an unrelated validation error cannot preserve the target signature."
+    ],
+    "settings": {
+      "imageLoading": "lazy",
+      "pageSize": 24,
+      "sort": "featured"
+    }
+  }
+}

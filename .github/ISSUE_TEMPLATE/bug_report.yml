@@ -1,0 +1,23 @@
+name: Reducer bug
+description: Report a reproducible failure or an unexpected reduction result
+body:
+  - type: textarea
+    id: behavior
+    attributes:
+      label: What happened?
+      description: Include what you expected, what happened, and the status in report.json.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Small reproducer and command
+      description: Include a redacted JSON fixture, oracle configuration, and exact arguments. Remove private code and credentials from reports.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: FixtureShrink version, Node version, and operating system
+    validations:
+      required: true

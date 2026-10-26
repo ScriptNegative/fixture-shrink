@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "products": [
+    {
+      "sku": "USB-C-001",
+      "name": "USB-C cable",
+      "price_cents": 1499
+    },
+    {
+      "sku": " usb-c-001 ",
+      "name": "USB adapter",
+      "price_cents": 2499
+    }
+  ]
+}

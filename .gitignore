@@ -1,0 +1,7 @@
+node_modules/
+/demo-result/
+/result/
+/catalog-repro/
+*.log
+.DS_Store
+Thumbs.db

@@ -1,0 +1,32 @@
+{
+  "status": "reduced",
+  "verified": true,
+  "original_bytes": 13548,
+  "normalized_bytes": 13016,
+  "result_bytes": 235,
+  "removed_bytes": 13313,
+  "oracle_runs": 81,
+  "max_runs": 240,
+  "final_confirmations": 2,
+  "reduction_reason": "fixed_point",
+  "candidates_tested": 66,
+  "accepted_reductions": 9,
+  "phase_counts": {
+    "baseline-original": 2,
+    "baseline-normalized": 2,
+    "candidate": 75,
+    "final": 2
+  },
+  "verdict_counts": {
+    "interesting": 24,
+    "uninteresting": 57
+  },
+  "timed_out": 0,
+  "output_limited": 0,
+  "operational_errors": 0,
+  "target": {
+    "exit_code": 1,
+    "stream": "stderr",
+    "includes": "REPRO: normalized-sku-collision"
+  }
+}

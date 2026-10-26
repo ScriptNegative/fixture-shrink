@@ -1,0 +1,13 @@
+{
+  "name": "fixture-shrink",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shrink failing JSON fixtures into focused counterexamples for coding agents",
+  "license": "MIT",
+  "type": "module",
+  "engines": {"node": ">=18"},
+  "scripts": {
+    "test": "node --test tests/reduce.test.mjs tests/oracle.test.mjs tests/cli.test.mjs tests/package.test.mjs",
+    "demo": "node skills/fixture-shrink/scripts/shrink.mjs examples/catalog/input.json --oracle examples/catalog/oracle.json --out demo-result"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "stage": "before",
+  "node_version": "v22.14.0",
+  "commands": [
+    {
+      "command": [
+        "node",
+        "examples/catalog/check.mjs",
+        "reduction/reduced.json"
+      ],
+      "exit_code": 1,
+      "signal": null,
+      "error": null,
+      "stdout": "",
+      "stderr": "REPRO: normalized-sku-collision\n"
+    },
+    {
+      "command": [
+        "node",
+        "examples/catalog/check.mjs",
+        "examples/catalog/input.json"
+      ],
+      "exit_code": 1,
+      "signal": null,
+      "error": null,
+      "stdout": "",
+      "stderr": "REPRO: normalized-sku-collision\n"
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "regression.test.mjs"
+      ],
+      "exit_code": 1,
+      "signal": null,
+      "error": null,
+      "stdout": "TAP version 13\n# Subtest: reduced collision fixture: every original SKU remains addressable\nnot ok 1 - reduced collision fixture: every original SKU remains addressable\n  ---\n  duration_ms: 5.0452\n  location: '<scratch>\\\\regression.test.mjs:18:3'\n  failureType: 'testCodeFailure'\n  error: |-\n    every distinct SKU needs an entry\n    \n    1 !== 2\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 2\n  actual: 1\n  operator: 'strictEqual'\n  stack: |-\n    assertAddressable (file:///<scratch>/regression.test.mjs:8:10)\n    TestContext.<anonymous> (file:///<scratch>/regression.test.mjs:20:5)\n    async Test.run (node:internal/test_runner/test:980:9)\n    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)\n  ...\n# Subtest: original full catalog: every original SKU remains addressable\nnot ok 2 - original full catalog: every original SKU remains addressable\n  ---\n  duration_ms: 2.107\n  location: '<scratch>\\\\regression.test.mjs:18:3'\n  failureType: 'testCodeFailure'\n  error: |-\n    every distinct SKU needs an entry\n    \n    33 !== 34\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 34\n  actual: 33\n  operator: 'strictEqual'\n  stack: |-\n    assertAddressable (file:///<scratch>/regression.test.mjs:8:10)\n    TestContext.<anonymous> (file:///<scratch>/regression.test.mjs:20:5)\n    async Test.run (node:internal/test_runner/test:980:9)\n    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)\n  ...\n# Subtest: case and surrounding whitespace distinguish SKU identifiers\nnot ok 3 - case and surrounding whitespace distinguish SKU identifiers\n  ---\n  duration_ms: 0.2902\n  location: '<scratch>\\\\regression.test.mjs:24:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    every distinct SKU needs an entry\n    \n    1 !== 4\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 4\n  actual: 1\n  operator: 'strictEqual'\n  stack: |-\n    assertAddressable (file:///<scratch>/regression.test.mjs:8:10)\n    TestContext.<anonymous> (file:///<scratch>/regression.test.mjs:28:3)\n    Test.runInAsyncScope (node:async_hooks:211:14)\n    Test.run (node:internal/test_runner/test:979:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:677:18)\n    Test.postRun (node:internal/test_runner/test:1090:19)\n    Test.run (node:internal/test_runner/test:1018:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)\n  ...\n# Subtest: one mixed-case SKU is retrievable by its original spelling\nnot ok 4 - one mixed-case SKU is retrievable by its original spelling\n  ---\n  duration_ms: 0.7617\n  location: '<scratch>\\\\regression.test.mjs:31:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    original SKU must retrieve its product: \"Mixed-Case-1\"\n    + actual - expected\n    \n    + undefined\n    - {\n    -   name: 'Single product',\n    -   price_cents: 99,\n    -   sku: 'Mixed-Case-1'\n    - }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    sku: 'Mixed-Case-1'\n    name: 'Single product'\n    price_cents: 99\n  operator: 'strictEqual'\n  stack: |-\n    assertAddressable (file:///<scratch>/regression.test.mjs:10:12)\n    TestContext.<anonymous> (file:///<scratch>/regression.test.mjs:32:3)\n    Test.runInAsyncScope (node:async_hooks:211:14)\n    Test.run (node:internal/test_runner/test:979:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:677:18)\n    Test.postRun (node:internal/test_runner/test:1090:19)\n    Test.run (node:internal/test_runner/test:1018:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 0\n# fail 4\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 97.4222\n",
+      "stderr": ""
+    }
+  ],
+  "files": {
+    "examples/catalog/input.json": {
+      "bytes": 13548,
+      "sha256": "6e0bbcca47efa360d0f0016284c2f8fd4e9561a8e396ed56cca42f56c11e2c54"
+    },
+    "examples/catalog/check.mjs": {
+      "bytes": 1836,
+      "sha256": "51ae3a95e3d5b9641b5ba47cb489ce7db46e5a34bb380fd8d7dab160b700b53f"
+    },
+    "examples/catalog/oracle.json": {
+      "bytes": 265,
+      "sha256": "9cb19870df8cd60ab7e5fda80769ce12c2f2ee706101712150efd43f4d955cef"
+    },
+    "examples/catalog/service.mjs": {
+      "bytes": 283,
+      "sha256": "fe95dc0e45da032fe8e9e8990b3e33bec7a2b05bd151d76f21d5acaa27da8c33"
+    },
+    "regression.test.mjs": {
+      "bytes": 1281,
+      "sha256": "f623db4a31cbee5af1a7c1436d2a1421df05e0bbe4ce71a05bb61aac0b750967"
+    },
+    "reduction/reduced.json": {
+      "bytes": 235,
+      "sha256": "1acb4f8ef717ddaaab35ad58d3e17b7fa823a42070994d7f3fbf5114a33131ff"
+    }
+  }
+}

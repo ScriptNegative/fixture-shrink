@@ -1,0 +1,2626 @@
+{
+  "format": 1,
+  "tool": "FixtureShrink",
+  "version": "0.1.0",
+  "created_at": "2026-10-26T21:13:01.308Z",
+  "status": "reduced",
+  "verified": true,
+  "source": {
+    "path": "examples/catalog/input.json",
+    "sha256": "6e0bbcca47efa360d0f0016284c2f8fd4e9561a8e396ed56cca42f56c11e2c54",
+    "bytes": 13548
+  },
+  "oracle": {
+    "command": [
+      "node",
+      "examples/catalog/check.mjs",
+      "{input}"
+    ],
+    "expect": {
+      "exit_code": 1,
+      "stream": "stderr",
+      "includes": "REPRO: normalized-sku-collision"
+    },
+    "timeout_ms": 3000,
+    "max_output_bytes": 65536,
+    "preserve": [
+      "/schemaVersion"
+    ],
+    "cwd": "."
+  },
+  "limits": {
+    "max_runs": 200
+  },
+  "normalization": {
+    "json_parse_stringify": true,
+    "bytes": 13016,
+    "sha256": "2bedef89ae874638577b9472d56e8d6e4c729b41ed0a8a7b105ef25d87d5236d",
+    "note": "Whitespace, number spelling, object-key ordering, and duplicate-key representation are normalized by JavaScript JSON parsing/serialization."
+  },
+  "runs": [
+    {
+      "index": 1,
+      "phase": "baseline-original",
+      "repeat": 1,
+      "input_sha256": "6e0bbcca47efa360d0f0016284c2f8fd4e9561a8e396ed56cca42f56c11e2c54",
+      "input_bytes": 13548,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 82,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 2,
+      "phase": "baseline-original",
+      "repeat": 2,
+      "input_sha256": "6e0bbcca47efa360d0f0016284c2f8fd4e9561a8e396ed56cca42f56c11e2c54",
+      "input_bytes": 13548,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 83,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 3,
+      "phase": "baseline-normalized",
+      "repeat": 1,
+      "input_sha256": "2bedef89ae874638577b9472d56e8d6e4c729b41ed0a8a7b105ef25d87d5236d",
+      "input_bytes": 13016,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 117,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 4,
+      "phase": "baseline-normalized",
+      "repeat": 2,
+      "input_sha256": "2bedef89ae874638577b9472d56e8d6e4c729b41ed0a8a7b105ef25d87d5236d",
+      "input_bytes": 13016,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 88,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 5,
+      "phase": "candidate",
+      "operation": "remove_object_members[1:3]",
+      "path": "",
+      "repeat": 1,
+      "input_sha256": "d20706ebc254cbe5871210a29a673a969532e8f4e1d9562426de481f25bd0e19",
+      "input_bytes": 465,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: products must be a nonempty array\n",
+        "preview_truncated": false,
+        "sha256": "af97d9033e703d9699bc8cebd7de43169c03a66b516f6693ea2211dcc2a6c597"
+      },
+      "duration_ms": 81,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 6,
+      "phase": "candidate",
+      "operation": "remove_object_members[2:4]",
+      "path": "",
+      "repeat": 1,
+      "input_sha256": "64c3da6fc4d54d77c50471c321fd4fd69c63f048b09ef03155cb59b7104921cf",
+      "input_bytes": 204,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: products must be a nonempty array\n",
+        "preview_truncated": false,
+        "sha256": "af97d9033e703d9699bc8cebd7de43169c03a66b516f6693ea2211dcc2a6c597"
+      },
+      "duration_ms": 77,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 7,
+      "phase": "candidate",
+      "operation": "remove_object_members[1:2]",
+      "path": "",
+      "repeat": 1,
+      "input_sha256": "42d5d7a604d32e8721ee71d67a2c1c0b922506bda7752542b339594f2a012291",
+      "input_bytes": 12837,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 81,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 8,
+      "phase": "candidate",
+      "operation": "remove_object_members[1:2]",
+      "path": "",
+      "repeat": 2,
+      "input_sha256": "42d5d7a604d32e8721ee71d67a2c1c0b922506bda7752542b339594f2a012291",
+      "input_bytes": 12837,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 78,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 9,
+      "phase": "candidate",
+      "operation": "remove_object_members[1:3]",
+      "path": "",
+      "repeat": 1,
+      "input_sha256": "609b0270c380969286ce2be72aad387758e8169c221f93c3bb14a4b352c5e65c",
+      "input_bytes": 25,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: products must be a nonempty array\n",
+        "preview_truncated": false,
+        "sha256": "af97d9033e703d9699bc8cebd7de43169c03a66b516f6693ea2211dcc2a6c597"
+      },
+      "duration_ms": 79,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 10,
+      "phase": "candidate",
+      "operation": "remove_object_members[2:3]",
+      "path": "",
+      "repeat": 1,
+      "input_sha256": "f14f6bb2c053e82d8882cd4c3b05104f7a09c8be39739918fb6fa0f0261b1c85",
+      "input_bytes": 12397,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 78,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 11,
+      "phase": "candidate",
+      "operation": "remove_object_members[2:3]",
+      "path": "",
+      "repeat": 2,
+      "input_sha256": "f14f6bb2c053e82d8882cd4c3b05104f7a09c8be39739918fb6fa0f0261b1c85",
+      "input_bytes": 12397,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 80,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 12,
+      "phase": "candidate",
+      "operation": "remove_array_items[0:34]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "8b1b5cbb791fce01ebaafbcdb84518789a657b2416d53f6c50d21bf1395d3be7",
+      "input_bytes": 43,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: products must be a nonempty array\n",
+        "preview_truncated": false,
+        "sha256": "af97d9033e703d9699bc8cebd7de43169c03a66b516f6693ea2211dcc2a6c597"
+      },
+      "duration_ms": 79,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 13,
+      "phase": "candidate",
+      "operation": "remove_array_items[0:17]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "901055791cbcf27584b8982c30050cc4bd9e59ae18845347c4719491a4a26c81",
+      "input_bytes": 6232,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 83,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 14,
+      "phase": "candidate",
+      "operation": "remove_array_items[1:18]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "04f486d7d9f8da3a15c6469883fc9e3fc806bdcb81bb9ed50a83a3501c341f74",
+      "input_bytes": 6230,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 86,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 15,
+      "phase": "candidate",
+      "operation": "remove_array_items[2:19]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "b49fca2342b3c1504563dd274f4295e6814c2cb8576aa48fcaf7c2a828e4bfc9",
+      "input_bytes": 6228,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 88,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 16,
+      "phase": "candidate",
+      "operation": "remove_array_items[3:20]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "d97fcd580567dde20d7d6d57c895d41db3a53e340d5e534d8eb9b5f53bf11f24",
+      "input_bytes": 6226,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 83,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 17,
+      "phase": "candidate",
+      "operation": "remove_array_items[4:21]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "4bec9fd460b88f6168d6d80bfe1eebaacabbf745309206ab9251dae46d0b1ecc",
+      "input_bytes": 6225,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 90,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 18,
+      "phase": "candidate",
+      "operation": "remove_array_items[5:22]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "65aaf44eedbb88d658f4e14532061f6bad8372c47d6be8fedfbff0f1124aeee6",
+      "input_bytes": 6224,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 82,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 19,
+      "phase": "candidate",
+      "operation": "remove_array_items[6:23]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "17ffdb73fe8cb9348f3ba72852f23dbea1f07866953b5a18f997a1eaed44dada",
+      "input_bytes": 6223,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 85,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 20,
+      "phase": "candidate",
+      "operation": "remove_array_items[7:24]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "8ec7c15eb54c5bc8078a089e989b2501c224dda4b3acdaa9ea28e4d6064dce1b",
+      "input_bytes": 6161,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 88,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 21,
+      "phase": "candidate",
+      "operation": "remove_array_items[7:24]",
+      "path": "/products",
+      "repeat": 2,
+      "input_sha256": "8ec7c15eb54c5bc8078a089e989b2501c224dda4b3acdaa9ea28e4d6064dce1b",
+      "input_bytes": 6161,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 97,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 22,
+      "phase": "candidate",
+      "operation": "remove_array_items[0:9]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "966a4d54493f8aabf9e8e0c55ba95d80d247380a85c7e666e943b9f77ff73b73",
+      "input_bytes": 2929,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 93,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 23,
+      "phase": "candidate",
+      "operation": "remove_array_items[1:10]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "8981e7ae7300041374c2a7877e73f66f940b51498a204b082d01dc0a943bc418",
+      "input_bytes": 2927,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 98,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 24,
+      "phase": "candidate",
+      "operation": "remove_array_items[2:11]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "da687529e585b58466dbfbbf1f35c7adf29be332d61b5c87e6c26b062fa24a33",
+      "input_bytes": 2977,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 89,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 25,
+      "phase": "candidate",
+      "operation": "remove_array_items[3:12]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "4dffe4b8d6da8eee89c183912bfe7c34b36ce49f0eb7799b73fd94fa84ed0f4c",
+      "input_bytes": 2975,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 96,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 26,
+      "phase": "candidate",
+      "operation": "remove_array_items[4:13]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "082f3b410b931bbefdf56e60c6e68ca534ed0c49a357e72d4e223edf5a788f00",
+      "input_bytes": 2974,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 115,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 27,
+      "phase": "candidate",
+      "operation": "remove_array_items[5:14]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "3f8131ded25706a619bed7eb239000f4e70511111239f015c920db3948435aa8",
+      "input_bytes": 2973,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 153,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 28,
+      "phase": "candidate",
+      "operation": "remove_array_items[6:15]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "c5ebefc1a0e8a926a6effca3a1ac33186be0efef5d29af633f8fbd57531def4c",
+      "input_bytes": 2972,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 139,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 29,
+      "phase": "candidate",
+      "operation": "remove_array_items[7:16]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "bffe0b8cd3d6ac9863d08b2129ed813d420cb7dccf29dffa82d4a84597e9ee34",
+      "input_bytes": 2910,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 143,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 30,
+      "phase": "candidate",
+      "operation": "remove_array_items[8:17]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "b0f5d175998b8f4b6df7b06f08018d35619262eeb67b184e5fac2ffe3fd9d26e",
+      "input_bytes": 2910,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 120,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 31,
+      "phase": "candidate",
+      "operation": "remove_array_items[0:5]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "976885f1f6b9c834639cd0c264e7f3b3573d3314db05ce835626924e432eab45",
+      "input_bytes": 4334,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 112,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 32,
+      "phase": "candidate",
+      "operation": "remove_array_items[0:5]",
+      "path": "/products",
+      "repeat": 2,
+      "input_sha256": "976885f1f6b9c834639cd0c264e7f3b3573d3314db05ce835626924e432eab45",
+      "input_bytes": 4334,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 111,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 33,
+      "phase": "candidate",
+      "operation": "remove_array_items[0:6]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "353326371aa09cf24c348fc2e8d5aedc8868c0892f112233797cb1dd0bdfa701",
+      "input_bytes": 2247,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 119,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 34,
+      "phase": "candidate",
+      "operation": "remove_array_items[1:7]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "790c777d63852e9c14aa086931eac76fc16562c3449c78a404a39b8ec1f53a68",
+      "input_bytes": 2246,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 107,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 35,
+      "phase": "candidate",
+      "operation": "remove_array_items[2:8]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "4c1362cd7463e3e3aa6a5b6fb7bea38af0ecacd3f9c7f9c23bf56797ce8c1eeb",
+      "input_bytes": 2184,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 101,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 36,
+      "phase": "candidate",
+      "operation": "remove_array_items[3:9]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "8e5cb757c26351d3ec8994973efd4a19bbb60c6f59b7f1953326fa7580ec634b",
+      "input_bytes": 2184,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 100,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 37,
+      "phase": "candidate",
+      "operation": "remove_array_items[4:10]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "07f472c9741d3dc62905407ddb9aab4e9c251cc357707bd8a51fe76e9e4b5914",
+      "input_bytes": 2184,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 95,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 38,
+      "phase": "candidate",
+      "operation": "remove_array_items[5:11]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "2a35093fa4d2f17078e054e9effe5c845a7dd7219ac5186219d5a7fc43dafbc4",
+      "input_bytes": 2184,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 89,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 39,
+      "phase": "candidate",
+      "operation": "remove_array_items[6:12]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "a00e41ea16d7ea81be3230d14d683b918582c0883937cf3f21e687bf183bc7a6",
+      "input_bytes": 2132,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 89,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 40,
+      "phase": "candidate",
+      "operation": "remove_array_items[6:12]",
+      "path": "/products",
+      "repeat": 2,
+      "input_sha256": "a00e41ea16d7ea81be3230d14d683b918582c0883937cf3f21e687bf183bc7a6",
+      "input_bytes": 2132,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 94,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 41,
+      "phase": "candidate",
+      "operation": "remove_array_items[0:3]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "99771fa665a8cef2a539ac73d90f14c5aafac529ddfbb34fc88d30742a55397f",
+      "input_bytes": 1094,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 86,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 42,
+      "phase": "candidate",
+      "operation": "remove_array_items[1:4]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "a3164bfa47818cae7d799fffc5c2ae3df4d25c72a75954a6417207088f871fcd",
+      "input_bytes": 1093,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 86,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 43,
+      "phase": "candidate",
+      "operation": "remove_array_items[2:5]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "16c2337c0bfbaf9980b18f33dddf9f27258a032d0b17bfa8eaa9e39c2d93a823",
+      "input_bytes": 1031,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 87,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 44,
+      "phase": "candidate",
+      "operation": "remove_array_items[2:5]",
+      "path": "/products",
+      "repeat": 2,
+      "input_sha256": "16c2337c0bfbaf9980b18f33dddf9f27258a032d0b17bfa8eaa9e39c2d93a823",
+      "input_bytes": 1031,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 87,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 45,
+      "phase": "candidate",
+      "operation": "remove_array_items[0:2]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "d7c672201605a46ce27fe7e1350b9dca114574f1c7136f02028eca3c78a779d3",
+      "input_bytes": 360,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 85,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 46,
+      "phase": "candidate",
+      "operation": "remove_array_items[1:3]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "dbfaf277e60ecd4f9b4dff11f29d00b30413496a8b243c8e4714485866da590d",
+      "input_bytes": 411,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 94,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 47,
+      "phase": "candidate",
+      "operation": "remove_array_items[0:1]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "65334ee0ead5f8ccef39a8791bb5a55f74cb66e681ba79ffc718349bd7ce6894",
+      "input_bytes": 665,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 92,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 48,
+      "phase": "candidate",
+      "operation": "remove_array_items[0:1]",
+      "path": "/products",
+      "repeat": 2,
+      "input_sha256": "65334ee0ead5f8ccef39a8791bb5a55f74cb66e681ba79ffc718349bd7ce6894",
+      "input_bytes": 665,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 99,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 49,
+      "phase": "candidate",
+      "operation": "remove_array_items[1:2]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "13021b4b5a22ebc72e52540fe4da7c0e1708919591c49d8fc95ac61f4c5c128f",
+      "input_bytes": 350,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 91,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 50,
+      "phase": "candidate",
+      "operation": "remove_object_members[0:6]",
+      "path": "/products/0",
+      "repeat": 1,
+      "input_sha256": "1657dd87cd3832efe8fda556d92fa122f698d19afd39b7e4f86bfba30023ef7b",
+      "input_bytes": 368,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a nonempty SKU\n",
+        "preview_truncated": false,
+        "sha256": "898065e686043c6d4949cf87a9d3ccfde35856ba24e30390f6a98aa856a0c5b1"
+      },
+      "duration_ms": 93,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 51,
+      "phase": "candidate",
+      "operation": "remove_object_members[0:3]",
+      "path": "/products/0",
+      "repeat": 1,
+      "input_sha256": "3687f139c17ee9c4232f502b4f53b700b36f4811ddae22e80852768265385655",
+      "input_bytes": 583,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a nonempty SKU\n",
+        "preview_truncated": false,
+        "sha256": "898065e686043c6d4949cf87a9d3ccfde35856ba24e30390f6a98aa856a0c5b1"
+      },
+      "duration_ms": 99,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 52,
+      "phase": "candidate",
+      "operation": "remove_object_members[1:4]",
+      "path": "/products/0",
+      "repeat": 1,
+      "input_sha256": "ed4698f6806eaa3482476f8cd4cba6ab7cc7444f1280f066fc12fb7def31b44d",
+      "input_bytes": 524,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a name\n",
+        "preview_truncated": false,
+        "sha256": "4376534f7afba3773df07c2c12af79ae54ae8e82e182319316c1889fc7988ad1"
+      },
+      "duration_ms": 95,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 53,
+      "phase": "candidate",
+      "operation": "remove_object_members[2:5]",
+      "path": "/products/0",
+      "repeat": 1,
+      "input_sha256": "8457d8f2e3cb43068866be16ad7ca4cde4237c24ff0a7748e3b3fd3d9d688fa9",
+      "input_bytes": 497,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a nonnegative integer price_cents\n",
+        "preview_truncated": false,
+        "sha256": "161d773ea03d7ab423789bcbecd32762d9523e2de9eaa0fb229c3ca59541caad"
+      },
+      "duration_ms": 86,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 54,
+      "phase": "candidate",
+      "operation": "remove_object_members[3:6]",
+      "path": "/products/0",
+      "repeat": 1,
+      "input_sha256": "fedb459e5e0ad367ff410ae040014b2e974bb2873cc7d90416941b59fb0b2f9e",
+      "input_bytes": 454,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 88,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 55,
+      "phase": "candidate",
+      "operation": "remove_object_members[3:6]",
+      "path": "/products/0",
+      "repeat": 2,
+      "input_sha256": "fedb459e5e0ad367ff410ae040014b2e974bb2873cc7d90416941b59fb0b2f9e",
+      "input_bytes": 454,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 87,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 56,
+      "phase": "candidate",
+      "operation": "remove_array_items[1:2]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "f12fcff54cf0e24243a6be0154b8daf65db59a6606337d7b6c7048cc3e1376d7",
+      "input_bytes": 139,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 89,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 57,
+      "phase": "candidate",
+      "operation": "remove_object_members[0:2]",
+      "path": "/products/0",
+      "repeat": 1,
+      "input_sha256": "7aade05d12139004209936d415897b1a9a0a0f77b8d738621bf9b0649fbffe55",
+      "input_bytes": 399,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a nonempty SKU\n",
+        "preview_truncated": false,
+        "sha256": "898065e686043c6d4949cf87a9d3ccfde35856ba24e30390f6a98aa856a0c5b1"
+      },
+      "duration_ms": 102,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 58,
+      "phase": "candidate",
+      "operation": "remove_object_members[1:3]",
+      "path": "/products/0",
+      "repeat": 1,
+      "input_sha256": "2654bd420f2aaca83cc436b95886fa3071decebbda5e125ec653a671a9e72ff8",
+      "input_bytes": 398,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a name\n",
+        "preview_truncated": false,
+        "sha256": "4376534f7afba3773df07c2c12af79ae54ae8e82e182319316c1889fc7988ad1"
+      },
+      "duration_ms": 98,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 59,
+      "phase": "candidate",
+      "operation": "remove_object_members[0:1]",
+      "path": "/products/0",
+      "repeat": 1,
+      "input_sha256": "0bfd6b54e977f13da59e2b9fa4013e518adcb6da31c007e50ec870cc3f813058",
+      "input_bytes": 428,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a nonempty SKU\n",
+        "preview_truncated": false,
+        "sha256": "898065e686043c6d4949cf87a9d3ccfde35856ba24e30390f6a98aa856a0c5b1"
+      },
+      "duration_ms": 92,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 60,
+      "phase": "candidate",
+      "operation": "remove_object_members[1:2]",
+      "path": "/products/0",
+      "repeat": 1,
+      "input_sha256": "09e2331f42978b41f9ce4fa80d5d7ae84ee2c703f4a31edb03679c180a6713d7",
+      "input_bytes": 425,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a name\n",
+        "preview_truncated": false,
+        "sha256": "4376534f7afba3773df07c2c12af79ae54ae8e82e182319316c1889fc7988ad1"
+      },
+      "duration_ms": 95,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 61,
+      "phase": "candidate",
+      "operation": "remove_object_members[2:3]",
+      "path": "/products/0",
+      "repeat": 1,
+      "input_sha256": "6719e5a37c39932af6bea502c67eae3e1d25a16e11626bae4bc9d5958a56a377",
+      "input_bytes": 427,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a nonnegative integer price_cents\n",
+        "preview_truncated": false,
+        "sha256": "161d773ea03d7ab423789bcbecd32762d9523e2de9eaa0fb229c3ca59541caad"
+      },
+      "duration_ms": 94,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 62,
+      "phase": "candidate",
+      "operation": "remove_object_members[0:6]",
+      "path": "/products/1",
+      "repeat": 1,
+      "input_sha256": "1678252a9cd77ebfe73172ab69aa12d14fece8f20ebef37532ec949cf99b94c6",
+      "input_bytes": 147,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a nonempty SKU\n",
+        "preview_truncated": false,
+        "sha256": "898065e686043c6d4949cf87a9d3ccfde35856ba24e30390f6a98aa856a0c5b1"
+      },
+      "duration_ms": 94,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 63,
+      "phase": "candidate",
+      "operation": "remove_object_members[0:3]",
+      "path": "/products/1",
+      "repeat": 1,
+      "input_sha256": "cb71420f16361bf98a2a42ef813b589ac3dd221f7c629585840b12b719b31ddd",
+      "input_bytes": 370,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a nonempty SKU\n",
+        "preview_truncated": false,
+        "sha256": "898065e686043c6d4949cf87a9d3ccfde35856ba24e30390f6a98aa856a0c5b1"
+      },
+      "duration_ms": 90,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 64,
+      "phase": "candidate",
+      "operation": "remove_object_members[1:4]",
+      "path": "/products/1",
+      "repeat": 1,
+      "input_sha256": "c51bf5c73d324dce96e8bb6eceaaab116f7ffdc88fe3c1bb12a6d9a318421825",
+      "input_bytes": 313,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a name\n",
+        "preview_truncated": false,
+        "sha256": "4376534f7afba3773df07c2c12af79ae54ae8e82e182319316c1889fc7988ad1"
+      },
+      "duration_ms": 84,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 65,
+      "phase": "candidate",
+      "operation": "remove_object_members[2:5]",
+      "path": "/products/1",
+      "repeat": 1,
+      "input_sha256": "0f94d994c862f60d7afac3ef5a2e930deff60b566f51776f1d045247e042d832",
+      "input_bytes": 284,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a nonnegative integer price_cents\n",
+        "preview_truncated": false,
+        "sha256": "161d773ea03d7ab423789bcbecd32762d9523e2de9eaa0fb229c3ca59541caad"
+      },
+      "duration_ms": 86,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 66,
+      "phase": "candidate",
+      "operation": "remove_object_members[3:6]",
+      "path": "/products/1",
+      "repeat": 1,
+      "input_sha256": "1acb4f8ef717ddaaab35ad58d3e17b7fa823a42070994d7f3fbf5114a33131ff",
+      "input_bytes": 235,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 89,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 67,
+      "phase": "candidate",
+      "operation": "remove_object_members[3:6]",
+      "path": "/products/1",
+      "repeat": 2,
+      "input_sha256": "1acb4f8ef717ddaaab35ad58d3e17b7fa823a42070994d7f3fbf5114a33131ff",
+      "input_bytes": 235,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 80,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 68,
+      "phase": "candidate",
+      "operation": "remove_array_items[0:1]",
+      "path": "/products",
+      "repeat": 1,
+      "input_sha256": "046e0b95870fffa8fa1a06bcfc5188f02102d4097582f39141a41ff828e292b6",
+      "input_bytes": 141,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all distinct SKUs remain in the index\n",
+        "preview_truncated": false,
+        "sha256": "6df6927a8bd94424a1d8df8ca002e48860653578ec6077cf8afe37136b495a77"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 86,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 69,
+      "phase": "candidate",
+      "operation": "remove_object_members[0:3]",
+      "path": "/products/0",
+      "repeat": 1,
+      "input_sha256": "1a76b08fa6b95b0beccbc3b2565163f0e38c96b99de6bf13b400fcc5a40514dd",
+      "input_bytes": 149,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a nonempty SKU\n",
+        "preview_truncated": false,
+        "sha256": "898065e686043c6d4949cf87a9d3ccfde35856ba24e30390f6a98aa856a0c5b1"
+      },
+      "duration_ms": 80,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 70,
+      "phase": "candidate",
+      "operation": "remove_object_members[0:2]",
+      "path": "/products/0",
+      "repeat": 1,
+      "input_sha256": "114593803aa4a29f5f988442d2fd720322151313d57e3458abd96ddd8ef2be64",
+      "input_bytes": 180,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a nonempty SKU\n",
+        "preview_truncated": false,
+        "sha256": "898065e686043c6d4949cf87a9d3ccfde35856ba24e30390f6a98aa856a0c5b1"
+      },
+      "duration_ms": 81,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 71,
+      "phase": "candidate",
+      "operation": "remove_object_members[1:3]",
+      "path": "/products/0",
+      "repeat": 1,
+      "input_sha256": "485e6ee2978e269c92a86b92a922ddd2b5f6f895d3a695560828f80babf513d4",
+      "input_bytes": 179,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a name\n",
+        "preview_truncated": false,
+        "sha256": "4376534f7afba3773df07c2c12af79ae54ae8e82e182319316c1889fc7988ad1"
+      },
+      "duration_ms": 81,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 72,
+      "phase": "candidate",
+      "operation": "remove_object_members[0:1]",
+      "path": "/products/0",
+      "repeat": 1,
+      "input_sha256": "c6260fb5db45bd387742a65b9392cd8c34724897e832cbaa76e4afb099640101",
+      "input_bytes": 209,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a nonempty SKU\n",
+        "preview_truncated": false,
+        "sha256": "898065e686043c6d4949cf87a9d3ccfde35856ba24e30390f6a98aa856a0c5b1"
+      },
+      "duration_ms": 90,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 73,
+      "phase": "candidate",
+      "operation": "remove_object_members[1:2]",
+      "path": "/products/0",
+      "repeat": 1,
+      "input_sha256": "140d5b09f181e8f56a6732e0e5c54b0e65a1f22bcacc0dbfbe8163d38e920366",
+      "input_bytes": 206,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a name\n",
+        "preview_truncated": false,
+        "sha256": "4376534f7afba3773df07c2c12af79ae54ae8e82e182319316c1889fc7988ad1"
+      },
+      "duration_ms": 86,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 74,
+      "phase": "candidate",
+      "operation": "remove_object_members[2:3]",
+      "path": "/products/0",
+      "repeat": 1,
+      "input_sha256": "c1313186cda04ac3e7e08e6be4c81b17a728ae4e438ee6d297f5ba820f63738e",
+      "input_bytes": 208,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a nonnegative integer price_cents\n",
+        "preview_truncated": false,
+        "sha256": "161d773ea03d7ab423789bcbecd32762d9523e2de9eaa0fb229c3ca59541caad"
+      },
+      "duration_ms": 103,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 75,
+      "phase": "candidate",
+      "operation": "remove_object_members[0:2]",
+      "path": "/products/1",
+      "repeat": 1,
+      "input_sha256": "e04c1047cb2555e82f8e5f0fcdc2d6e50d7440a931da2d8cd466b11156667eb1",
+      "input_bytes": 178,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a nonempty SKU\n",
+        "preview_truncated": false,
+        "sha256": "898065e686043c6d4949cf87a9d3ccfde35856ba24e30390f6a98aa856a0c5b1"
+      },
+      "duration_ms": 86,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 76,
+      "phase": "candidate",
+      "operation": "remove_object_members[1:3]",
+      "path": "/products/1",
+      "repeat": 1,
+      "input_sha256": "b5d90c1daebc8ebba1a209427ec462b13b8efe10fea65d33eeda7558df50a6a7",
+      "input_bytes": 179,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a name\n",
+        "preview_truncated": false,
+        "sha256": "4376534f7afba3773df07c2c12af79ae54ae8e82e182319316c1889fc7988ad1"
+      },
+      "duration_ms": 82,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 77,
+      "phase": "candidate",
+      "operation": "remove_object_members[0:1]",
+      "path": "/products/1",
+      "repeat": 1,
+      "input_sha256": "f928546939133c773d574118245874149d70c58003dce26ba47aee639ff3244a",
+      "input_bytes": 207,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a nonempty SKU\n",
+        "preview_truncated": false,
+        "sha256": "898065e686043c6d4949cf87a9d3ccfde35856ba24e30390f6a98aa856a0c5b1"
+      },
+      "duration_ms": 85,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 78,
+      "phase": "candidate",
+      "operation": "remove_object_members[1:2]",
+      "path": "/products/1",
+      "repeat": 1,
+      "input_sha256": "9afd519df48edb8c391ef6ac76b876db8b63a1384b312b513a2dd8b133073d65",
+      "input_bytes": 206,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a name\n",
+        "preview_truncated": false,
+        "sha256": "4376534f7afba3773df07c2c12af79ae54ae8e82e182319316c1889fc7988ad1"
+      },
+      "duration_ms": 92,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 79,
+      "phase": "candidate",
+      "operation": "remove_object_members[2:3]",
+      "path": "/products/1",
+      "repeat": 1,
+      "input_sha256": "62179f634ee9284e66b2d3dfb8d91c31a609469d2b78aa17b7115f8a64c35bd1",
+      "input_bytes": 208,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: product requires a nonnegative integer price_cents\n",
+        "preview_truncated": false,
+        "sha256": "161d773ea03d7ab423789bcbecd32762d9523e2de9eaa0fb229c3ca59541caad"
+      },
+      "duration_ms": 89,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 80,
+      "phase": "final",
+      "repeat": 1,
+      "input_sha256": "1acb4f8ef717ddaaab35ad58d3e17b7fa823a42070994d7f3fbf5114a33131ff",
+      "input_bytes": 235,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 91,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 81,
+      "phase": "final",
+      "repeat": 2,
+      "input_sha256": "1acb4f8ef717ddaaab35ad58d3e17b7fa823a42070994d7f3fbf5114a33131ff",
+      "input_bytes": 235,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: normalized-sku-collision\n",
+        "preview_truncated": false,
+        "sha256": "9f8fa141f9e4b30dafe47c445ff2085ee00318e0ba02cfebaacccb30f3289ae9"
+      },
+      "duration_ms": 87,
+      "error": null,
+      "input_unchanged": true
+    }
+  ],
+  "reduction": {
+    "candidates_tested": 66,
+    "accepted_reductions": 9,
+    "reason": "fixed_point",
+    "trace": [
+      {
+        "operation": "remove_object_members[1:3]",
+        "path": "",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[2:4]",
+        "path": "",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[1:2]",
+        "path": "",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_object_members[1:3]",
+        "path": "",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[2:3]",
+        "path": "",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_array_items[0:34]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[0:17]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[1:18]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[2:19]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[3:20]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[4:21]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[5:22]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[6:23]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[7:24]",
+        "path": "/products",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_array_items[0:9]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[1:10]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[2:11]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[3:12]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[4:13]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[5:14]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[6:15]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[7:16]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[8:17]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[0:5]",
+        "path": "/products",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_array_items[0:6]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[1:7]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[2:8]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[3:9]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[4:10]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[5:11]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[6:12]",
+        "path": "/products",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_array_items[0:3]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[1:4]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[2:5]",
+        "path": "/products",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_array_items[0:2]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[1:3]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_array_items[0:1]",
+        "path": "/products",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_array_items[1:2]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[0:6]",
+        "path": "/products/0",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[0:3]",
+        "path": "/products/0",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[1:4]",
+        "path": "/products/0",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[2:5]",
+        "path": "/products/0",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[3:6]",
+        "path": "/products/0",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_array_items[1:2]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[0:2]",
+        "path": "/products/0",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[1:3]",
+        "path": "/products/0",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[0:1]",
+        "path": "/products/0",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[1:2]",
+        "path": "/products/0",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[2:3]",
+        "path": "/products/0",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[0:6]",
+        "path": "/products/1",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[0:3]",
+        "path": "/products/1",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[1:4]",
+        "path": "/products/1",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[2:5]",
+        "path": "/products/1",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[3:6]",
+        "path": "/products/1",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_array_items[0:1]",
+        "path": "/products",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[0:3]",
+        "path": "/products/0",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[0:2]",
+        "path": "/products/0",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[1:3]",
+        "path": "/products/0",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[0:1]",
+        "path": "/products/0",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[1:2]",
+        "path": "/products/0",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[2:3]",
+        "path": "/products/0",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[0:2]",
+        "path": "/products/1",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[1:3]",
+        "path": "/products/1",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[0:1]",
+        "path": "/products/1",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[1:2]",
+        "path": "/products/1",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[2:3]",
+        "path": "/products/1",
+        "verdict": "uninteresting",
+        "accepted": false
+      }
+    ]
+  },
+  "result": {
+    "path": "reduced.json",
+    "sha256": "1acb4f8ef717ddaaab35ad58d3e17b7fa823a42070994d7f3fbf5114a33131ff",
+    "bytes": 235
+  },
+  "final_confirmations": 2
+}

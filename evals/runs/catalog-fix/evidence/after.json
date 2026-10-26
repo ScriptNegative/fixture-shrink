@@ -1,0 +1,68 @@
+{
+  "stage": "after",
+  "node_version": "v22.14.0",
+  "commands": [
+    {
+      "command": [
+        "node",
+        "examples/catalog/check.mjs",
+        "reduction/reduced.json"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "PASS: all distinct SKUs remain in the index\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "examples/catalog/check.mjs",
+        "examples/catalog/input.json"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "PASS: all distinct SKUs remain in the index\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "regression.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "TAP version 13\n# Subtest: reduced collision fixture: every original SKU remains addressable\nok 1 - reduced collision fixture: every original SKU remains addressable\n  ---\n  duration_ms: 4.6665\n  ...\n# Subtest: original full catalog: every original SKU remains addressable\nok 2 - original full catalog: every original SKU remains addressable\n  ---\n  duration_ms: 1.4322\n  ...\n# Subtest: case and surrounding whitespace distinguish SKU identifiers\nok 3 - case and surrounding whitespace distinguish SKU identifiers\n  ---\n  duration_ms: 0.2782\n  ...\n# Subtest: one mixed-case SKU is retrievable by its original spelling\nok 4 - one mixed-case SKU is retrievable by its original spelling\n  ---\n  duration_ms: 0.1322\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 4\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 92.6993\n",
+      "stderr": ""
+    }
+  ],
+  "files": {
+    "examples/catalog/input.json": {
+      "bytes": 13548,
+      "sha256": "6e0bbcca47efa360d0f0016284c2f8fd4e9561a8e396ed56cca42f56c11e2c54"
+    },
+    "examples/catalog/check.mjs": {
+      "bytes": 1836,
+      "sha256": "51ae3a95e3d5b9641b5ba47cb489ce7db46e5a34bb380fd8d7dab160b700b53f"
+    },
+    "examples/catalog/oracle.json": {
+      "bytes": 265,
+      "sha256": "9cb19870df8cd60ab7e5fda80769ce12c2f2ee706101712150efd43f4d955cef"
+    },
+    "examples/catalog/service.mjs": {
+      "bytes": 182,
+      "sha256": "c555560cdb3dc90cc837235450b37380da9a2c7aee4cb545d848bcfa53aedc51"
+    },
+    "regression.test.mjs": {
+      "bytes": 1281,
+      "sha256": "f623db4a31cbee5af1a7c1436d2a1421df05e0bbe4ce71a05bb61aac0b750967"
+    },
+    "reduction/reduced.json": {
+      "bytes": 235,
+      "sha256": "1acb4f8ef717ddaaab35ad58d3e17b7fa823a42070994d7f3fbf5114a33131ff"
+    }
+  }
+}

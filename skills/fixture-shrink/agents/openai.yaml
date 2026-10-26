@@ -1,0 +1,4 @@
+interface:
+  display_name: "FixtureShrink"
+  short_description: "Reduce failing JSON while replaying the same error"
+  default_prompt: "Use $fixture-shrink to reduce this failing JSON fixture and verify that the same failure still reproduces."

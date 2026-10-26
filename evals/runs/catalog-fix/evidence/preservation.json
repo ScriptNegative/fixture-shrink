@@ -1,0 +1,20 @@
+[
+  {
+    "file": "input.json",
+    "source_sha256": "6e0bbcca47efa360d0f0016284c2f8fd4e9561a8e396ed56cca42f56c11e2c54",
+    "scratch_sha256": "6e0bbcca47efa360d0f0016284c2f8fd4e9561a8e396ed56cca42f56c11e2c54",
+    "unchanged": true
+  },
+  {
+    "file": "check.mjs",
+    "source_sha256": "51ae3a95e3d5b9641b5ba47cb489ce7db46e5a34bb380fd8d7dab160b700b53f",
+    "scratch_sha256": "51ae3a95e3d5b9641b5ba47cb489ce7db46e5a34bb380fd8d7dab160b700b53f",
+    "unchanged": true
+  },
+  {
+    "file": "oracle.json",
+    "source_sha256": "9cb19870df8cd60ab7e5fda80769ce12c2f2ee706101712150efd43f4d955cef",
+    "scratch_sha256": "9cb19870df8cd60ab7e5fda80769ce12c2f2ee706101712150efd43f4d955cef",
+    "unchanged": true
+  }
+]
