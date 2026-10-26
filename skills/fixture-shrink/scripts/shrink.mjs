@@ -24,6 +24,7 @@ function markdown(report) {
     `Oracle runs: ${report.runs.length}/${report.limits.max_runs}.`,
     `Original: ${report.source.bytes} bytes. Normalized: ${report.normalization.bytes} bytes.`,
     `Result: ${report.result ? `${report.result.bytes} bytes in ${report.result.path}` : 'no accepted result'}.`, '',
+    `String-value reduction: ${report.reduction_options.shrink_strings ? 'enabled (Unicode code points)' : 'disabled (structure only)'}.`, '',
     'The matcher identifies an observed failure signature; it does not establish the same root cause or a global minimum.', '',
     '## Replay command', '', 'Arguments (no shell):', '', '```json', JSON.stringify(report.oracle.command), '```', '',
     'Replace the standalone {input} argument with the result file. Run from the recorded working directory, using the same program and environment.', '',
@@ -35,8 +36,9 @@ function markdown(report) {
   return `${lines.join('\n')}\n`;
 }
 
-export async function shrinkFile(inputPath, oraclePath, outputPath, {maxRuns=80, cwd=process.cwd()}={}) {
+export async function shrinkFile(inputPath, oraclePath, outputPath, {maxRuns=80, cwd=process.cwd(), shrinkStrings=false}={}) {
   if (!Number.isSafeInteger(maxRuns) || maxRuns < 6 || maxRuns > 10000) fail('max-runs must be an integer from 6 to 10000');
+  if (typeof shrinkStrings !== 'boolean') fail('shrinkStrings must be a boolean');
   const sourcePath = path.resolve(inputPath);
   const output = path.resolve(outputPath);
   const workingDirectory = path.resolve(cwd);
@@ -49,12 +51,18 @@ export async function shrinkFile(inputPath, oraclePath, outputPath, {maxRuns=80,
   // Validate protected paths before executing the user's command or creating output.
   validatePreserve(value,oracle.preserve);
   const normalized = serialize(value);
-  await mkdir(output,{mode:0o700}); // Intentionally refuses to reuse an existing directory.
+  try {
+    await mkdir(output,{mode:0o700}); // Intentionally refuses to reuse an existing directory.
+  } catch(error) {
+    if (error.code==='ENOENT' || error.code==='ENOTDIR') fail(`Output parent must already exist as a directory: ${path.dirname(output)}. Create it first; --out must name a new directory.`);
+    throw error;
+  }
   const report = {
-    format:1,tool:'FixtureShrink',version:'0.1.0',created_at:new Date().toISOString(),
+    format:1,tool:'FixtureShrink',version:'0.2.0',created_at:new Date().toISOString(),
     status:'in_progress',verified:false,
     source:{path:sourcePath,sha256:originalHash,bytes:source.length},
     oracle:{...oracle,cwd:workingDirectory},limits:{max_runs:maxRuns},
+    reduction_options:{shrink_strings:shrinkStrings},
     normalization:{json_parse_stringify:true,bytes:Buffer.byteLength(normalized),sha256:hash(normalized),note:'Whitespace, number spelling, object-key ordering, and duplicate-key representation are normalized by JavaScript JSON parsing/serialization.'},
     runs:[],reduction:null,result:null,final_confirmations:0
   };
@@ -110,7 +118,7 @@ export async function shrinkFile(inputPath, oraclePath, outputPath, {maxRuns=80,
       }
     }
     const reduction=await minimize(value,{
-      maxCandidates:maxRuns,preserve:oracle.preserve,
+      maxCandidates:maxRuns,preserve:oracle.preserve,shrinkStrings,
       test:async (candidate, metadata) => {
         // Keep two final replays available, and allow two confirmations for an accepted candidate.
         if (report.runs.length+4>maxRuns) return 'stop';
@@ -144,22 +152,28 @@ export async function shrinkFile(inputPath, oraclePath, outputPath, {maxRuns=80,
 }
 
 if (process.argv[1] && import.meta.url===pathToFileURL(path.resolve(process.argv[1])).href) {
-  const usage='Usage: node shrink.mjs <input.json> --oracle <oracle.json> --out <new-directory> [--max-runs N]';
+  const usage='Usage: node shrink.mjs <input.json> --oracle <oracle.json> --out <new-directory> [--max-runs N] [--shrink-strings]';
   try {
     const args=process.argv.slice(2);
     if (args.length===1 && args[0]==='--help') process.stdout.write(`${usage}\n`);
     else {
       if (!args[0] || args[0].startsWith('--')) fail(usage);
       const options={};
-      for (let index=1;index<args.length;index+=2) {
+      for (let index=1;index<args.length;index++) {
         const flag=args[index],value=args[index+1];
+        if (flag==='--shrink-strings') {
+          if (Object.hasOwn(options,flag)) fail(usage);
+          options[flag]=true;
+          continue;
+        }
         if (!['--oracle','--out','--max-runs'].includes(flag)||!value||value.startsWith('--')||Object.hasOwn(options,flag)) fail(usage);
         options[flag]=value;
+        index++;
       }
       if (!options['--oracle']||!options['--out']) fail(usage);
       const count=options['--max-runs'];
       if (count!==undefined && !/^[1-9]\d*$/.test(count)) fail('max-runs must be an integer from 6 to 10000');
-      const report=await shrinkFile(args[0],options['--oracle'],options['--out'],{maxRuns:count===undefined?80:Number(count)});
+      const report=await shrinkFile(args[0],options['--oracle'],options['--out'],{maxRuns:count===undefined?80:Number(count),shrinkStrings:options['--shrink-strings']===true});
       process.stdout.write(`${JSON.stringify({status:report.status,verified:report.verified,original_bytes:report.source.bytes,normalized_bytes:report.normalization.bytes,result_bytes:report.result?.bytes??null,oracle_runs:report.runs.length,max_runs:report.limits.max_runs,output:path.resolve(options['--out'])},null,2)}\n`);
       process.exitCode=report.verified?0:report.status==='unstable_result'?3:2;
     }

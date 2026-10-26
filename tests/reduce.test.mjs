@@ -220,3 +220,93 @@ test('invalid options and callback outcomes are rejected rather than guessed', a
   for(const verdict of [true,false,null,undefined,'passed']) await assert.rejects(()=>minimize({a:1},{test:async()=>verdict}),/verdict/);
   await assert.rejects(()=>minimize({a:1},{test:async()=>{throw new Error('oracle failed');}}),/oracle failed/);
 });
+
+test('string reduction is opt-in and explicit false preserves the structural strategy exactly', async () => {
+  const input={keep:'before:needle:after',noise:[1,2,3]};
+  const test=retain(candidate=>typeof candidate.keep==='string'&&candidate.keep.includes('needle'));
+  const legacy=await minimize(input,{test});
+  const explicit=await minimize(input,{test,shrinkStrings:false});
+  assert.deepEqual(explicit,legacy);
+  assert.deepEqual(legacy.value,{keep:input.keep});
+  const strings=await minimize(input,{test,shrinkStrings:true,maxCandidates:200});
+  assert.deepEqual(strings.value,{keep:'needle'});
+  assert.ok(strings.trace.some(item=>item.operation.startsWith('remove_string_chunks[')&&item.path==='/keep'&&item.accepted));
+  assert.deepEqual(input,{keep:'before:needle:after',noise:[1,2,3]});
+});
+
+test('root strings shrink by Unicode code points without splitting surrogate pairs or normalizing text', async () => {
+  const input='xx😀zz e\u0301yy漢字';
+  const observed=[];
+  const result=await minimize(input,{shrinkStrings:true,maxCandidates:300,test:retain(candidate=>{
+    assert.equal(typeof candidate,'string');
+    for(let index=0;index<candidate.length;index++) {
+      const unit=candidate.charCodeAt(index);
+      if(unit>=0xd800&&unit<=0xdbff) {
+        assert.ok(index+1<candidate.length);
+        const next=candidate.charCodeAt(++index);
+        assert.ok(next>=0xdc00&&next<=0xdfff);
+      } else assert.ok(unit<0xdc00||unit>0xdfff);
+    }
+    observed.push(candidate);
+    return candidate.includes('😀')&&candidate.includes('e\u0301');
+  })});
+  assert.equal(result.value,'😀e\u0301');
+  assert.ok(observed.length>0);
+  assert.ok(result.trace.every(item=>item.path===''));
+  const empty=await minimize('',{shrinkStrings:true,test:()=>{throw new Error('no characters to remove');}});
+  assert.equal(empty.reason,'fixed_point');
+  assert.equal(empty.candidates_tested,0);
+});
+
+test('protected strings and subtrees retain exact values while unrelated string values shrink', async () => {
+  const input={locked:{message:'😀'.repeat(3000)},payload:{'a/b':'prefix:needle:suffix'},count:42,enabled:false,empty:null};
+  const result=await minimize(input,{shrinkStrings:true,maxCandidates:200,preserve:['/locked'],test:retain(candidate=>
+    typeof candidate.payload?.['a/b']==='string'&&candidate.payload['a/b'].includes('needle')&&candidate.count===42&&candidate.enabled===false&&Object.hasOwn(candidate,'empty')&&candidate.empty===null
+  )});
+  assert.equal(result.value.locked.message,input.locked.message);
+  assert.equal(result.value.payload['a/b'],'needle');
+  assert.ok(result.trace.some(item=>item.operation.startsWith('remove_string_chunks[')&&item.path==='/payload/a~1b'));
+  assert.ok(result.trace.every(item=>!item.path.startsWith('/locked')));
+  assert.equal(result.value.count,42);
+  assert.equal(result.value.enabled,false);
+  assert.equal(result.value.empty,null);
+  const protectedRoot=await minimize('a😀b',{shrinkStrings:true,preserve:[''],test:()=>{throw new Error('protected root');}});
+  assert.equal(protectedRoot.value,'a😀b');
+  assert.equal(protectedRoot.candidates_tested,0);
+});
+
+test('string values under prototype-like keys shrink without modifying keys or input objects', async () => {
+  const input=JSON.parse('{"__proto__":"noise needle noise","constructor":"retain"}');
+  const before=JSON.stringify(input);
+  const result=await minimize(input,{shrinkStrings:true,preserve:['/constructor'],test:retain(candidate=>Object.hasOwn(candidate,'__proto__')&&candidate.__proto__.includes('needle'))});
+  assert.deepEqual(Object.keys(result.value),['__proto__','constructor']);
+  assert.equal(result.value.__proto__,'needle');
+  assert.equal(result.value.constructor,'retain');
+  assert.equal(Object.getPrototypeOf(result.value),Object.prototype);
+  assert.equal(JSON.stringify(input),before);
+});
+
+test('string mode respects candidate budgets, stop verdicts, and exact candidate caching', async () => {
+  let calls=0;
+  const input='aaa needle aaa';
+  const limited=await minimize(input,{shrinkStrings:true,maxCandidates:1,test:async()=>{calls++;return 'uninteresting';}});
+  assert.equal(calls,1);
+  assert.equal(limited.reason,'budget_exhausted');
+  assert.equal(limited.value,input);
+  const zero=await minimize(input,{shrinkStrings:true,maxCandidates:0,test:()=>{throw new Error('no budget');}});
+  assert.equal(zero.reason,'budget_exhausted');
+  const stopped=await minimize(input,{shrinkStrings:true,test:async()=> 'stop'});
+  assert.equal(stopped.reason,'budget_exhausted');
+  assert.equal(stopped.candidates_tested,1);
+  assert.equal(stopped.trace[0].accepted,false);
+  const seen=[];
+  const cached=await minimize(input,{shrinkStrings:true,maxCandidates:200,test:retain(candidate=>{seen.push(candidate);return candidate.includes('needle');})});
+  assert.equal(cached.value,'needle');
+  assert.equal(new Set(seen).size,seen.length);
+});
+
+test('string mode rejects ambiguous option values before any callback', async () => {
+  for(const shrinkStrings of [null,0,1,'true',[],{}]) {
+    await assert.rejects(()=>minimize('needle',{shrinkStrings,test:()=>{throw new Error('should not run');}}),/boolean/);
+  }
+});

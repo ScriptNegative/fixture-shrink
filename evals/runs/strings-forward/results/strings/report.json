@@ -1,0 +1,3757 @@
+{
+  "format": 1,
+  "tool": "FixtureShrink",
+  "version": "0.2.0",
+  "created_at": "2026-10-26T21:48:37.702Z",
+  "status": "reduced",
+  "verified": true,
+  "source": {
+    "path": "./examples/message/input.json",
+    "sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+    "bytes": 4007
+  },
+  "oracle": {
+    "command": [
+      "node",
+      "examples/message/check.mjs",
+      "{input}"
+    ],
+    "expect": {
+      "exit_code": 1,
+      "stream": "stderr",
+      "includes": "REPRO: truncated-message"
+    },
+    "timeout_ms": 3000,
+    "max_output_bytes": 65536,
+    "preserve": [
+      "/schemaVersion"
+    ],
+    "cwd": "."
+  },
+  "limits": {
+    "max_runs": 400
+  },
+  "reduction_options": {
+    "shrink_strings": true
+  },
+  "normalization": {
+    "json_parse_stringify": true,
+    "bytes": 4007,
+    "sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+    "note": "Whitespace, number spelling, object-key ordering, and duplicate-key representation are normalized by JavaScript JSON parsing/serialization."
+  },
+  "runs": [
+    {
+      "index": 1,
+      "phase": "baseline-original",
+      "repeat": 1,
+      "input_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+      "input_bytes": 4007,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 91,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 2,
+      "phase": "baseline-original",
+      "repeat": 2,
+      "input_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+      "input_bytes": 4007,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 85,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 3,
+      "phase": "baseline-normalized",
+      "repeat": 1,
+      "input_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+      "input_bytes": 4007,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 81,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 4,
+      "phase": "baseline-normalized",
+      "repeat": 2,
+      "input_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+      "input_bytes": 4007,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 79,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 5,
+      "phase": "candidate",
+      "operation": "remove_object_members[1:3]",
+      "path": "",
+      "repeat": 1,
+      "input_sha256": "d3b2b0f6f44b0558e0dcccac07e641fd12b9a3f0ade9a2a157529a7067c7b437",
+      "input_bytes": 652,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 79,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 6,
+      "phase": "candidate",
+      "operation": "remove_object_members[2:4]",
+      "path": "",
+      "repeat": 1,
+      "input_sha256": "87a4b0d03cbe34bb0de5eb215811b10ac85fd40602becbc4ab538dc6617959bd",
+      "input_bytes": 2760,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 84,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 7,
+      "phase": "candidate",
+      "operation": "remove_object_members[2:4]",
+      "path": "",
+      "repeat": 2,
+      "input_sha256": "87a4b0d03cbe34bb0de5eb215811b10ac85fd40602becbc4ab538dc6617959bd",
+      "input_bytes": 2760,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 80,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 8,
+      "phase": "candidate",
+      "operation": "remove_object_members[1:2]",
+      "path": "",
+      "repeat": 1,
+      "input_sha256": "609b0270c380969286ce2be72aad387758e8169c221f93c3bb14a4b352c5e65c",
+      "input_bytes": 25,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 81,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 9,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:2526]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "4255989a99d0534c0b5a4cea243fd5ba205881ba91d7e7b7b4f1b7fdc36ebf10",
+      "input_bytes": 42,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 82,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 10,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:1263]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "85faa0aecf420f3e70a0bd3832b824a55379773c2f2d21338ef7e94dd1355b27",
+      "input_bytes": 1345,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 78,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 11,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[1263:2526]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "2014935b63cfd2654846286febdf53ed51e79eb13c21632fc9e25d880e69a400",
+      "input_bytes": 1457,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all content after the first delimiter is preserved\n",
+        "preview_truncated": false,
+        "sha256": "afc0b3a902d09917e27f4a4a5ea6bb58f99925ee41f762d83801cf9a569577ac"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 164,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 12,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:632]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "7cfff7a8c7e4b407582aac7494e39b28615341d73a31a93d43e0297d8a1b3836",
+      "input_bytes": 2048,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 82,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 13,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[632:1264]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "920eb70cc58d5f2c00c270ffee3c07b31702ba8ba5b68229f37389cd8eec93c9",
+      "input_bytes": 2056,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 80,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 14,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[632:1264]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "920eb70cc58d5f2c00c270ffee3c07b31702ba8ba5b68229f37389cd8eec93c9",
+      "input_bytes": 2056,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 84,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 15,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:947]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "8d11ab7c1d7dd32062ecc59b24e8030d48ac825141518c42a01616efa3991ed2",
+      "input_bytes": 989,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 88,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 16,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[947:1894]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "fedd21a669a3753e6983b431f3285c01497698ac186c632c35f51be1f829800a",
+      "input_bytes": 1109,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all content after the first delimiter is preserved\n",
+        "preview_truncated": false,
+        "sha256": "afc0b3a902d09917e27f4a4a5ea6bb58f99925ee41f762d83801cf9a569577ac"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 84,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 17,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:474]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "e3cc9e1d6b7b00a42af6d5701fcbf8c69c17b68fc14df7c1c2826c361136d1ef",
+      "input_bytes": 1526,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 83,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 18,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[474:948]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "6ab760145c9a74b2aa7dc3a98f8feefe2337fdad5a8fb7e3e92c032dbc97679d",
+      "input_bytes": 1518,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 90,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 19,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[474:948]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "6ab760145c9a74b2aa7dc3a98f8feefe2337fdad5a8fb7e3e92c032dbc97679d",
+      "input_bytes": 1518,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 89,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 20,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:710]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "f94804a02462bdc5a223e7a77bbaa099a4ff1b61b10b1db15b5d586c733ecf4e",
+      "input_bytes": 752,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 84,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 21,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[710:1420]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "d38d200708a07dc1f8ec105e60e16236c61bd452c45b67c9f9e8c674a66c8f62",
+      "input_bytes": 808,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 82,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 22,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[710:1420]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "d38d200708a07dc1f8ec105e60e16236c61bd452c45b67c9f9e8c674a66c8f62",
+      "input_bytes": 808,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 84,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 23,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:355]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "0b1b394582a1309b5773f5061c2d35fc6ae67a4b22a3c5099f34805c38564ac8",
+      "input_bytes": 409,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 78,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 24,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[355:710]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "6c45d5b097b90ffcddcbbba700f2d96c6f2b0e3f624036f450ec5c49827db655",
+      "input_bytes": 441,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all content after the first delimiter is preserved\n",
+        "preview_truncated": false,
+        "sha256": "afc0b3a902d09917e27f4a4a5ea6bb58f99925ee41f762d83801cf9a569577ac"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 83,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 25,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:178]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "4101552bc0de2a39b5b23cfcd4637560710dde5a4acbe9681fcf3f393c597d8f",
+      "input_bytes": 606,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 84,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 26,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[178:356]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "8de21ca121b88160fab0cb25f7b8347993fc7c76af1131c0cde6626917ba9a7c",
+      "input_bytes": 610,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 79,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 27,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[178:356]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "8de21ca121b88160fab0cb25f7b8347993fc7c76af1131c0cde6626917ba9a7c",
+      "input_bytes": 610,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 79,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 28,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:266]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "57c9b238589d155752d5eb8070cef03077c3c6b2f718d83b31d78d9be77385a5",
+      "input_bytes": 308,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 80,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 29,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[266:532]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "67a8a468d00d7b4aba917d0dc564a2bf6cdc775be1d41577b91c5ceade525773",
+      "input_bytes": 344,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all content after the first delimiter is preserved\n",
+        "preview_truncated": false,
+        "sha256": "afc0b3a902d09917e27f4a4a5ea6bb58f99925ee41f762d83801cf9a569577ac"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 86,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 30,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:133]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "7527bfaffcc351897898a66689d99ec2a4b50cf71468ce021189c925d77b7d9b",
+      "input_bytes": 461,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 79,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 31,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[133:266]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "64ad998212ad67736614d7e8938b039bf52f9c4541f9bdcbb447ee6bd7990751",
+      "input_bytes": 457,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 79,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 32,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[133:266]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "64ad998212ad67736614d7e8938b039bf52f9c4541f9bdcbb447ee6bd7990751",
+      "input_bytes": 457,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 79,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 33,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:200]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "32fc04fff5813babdbaa20256f2f847bdf4fff4efc50a8e441959dddedad2bed",
+      "input_bytes": 241,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 78,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 34,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[200:399]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "0401766789b2077b4cb25297ef1d866ba3332262e3251aaf7e8fa303ac0aa395",
+      "input_bytes": 258,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 79,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 35,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[200:399]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "0401766789b2077b4cb25297ef1d866ba3332262e3251aaf7e8fa303ac0aa395",
+      "input_bytes": 258,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 81,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 36,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:100]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "5e4c0a2adcb2d0a5e56035e815f43d4f844a091a8bd85b6ee84dd6a0b0de4af7",
+      "input_bytes": 142,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 81,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 37,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[100:200]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "5fcf2cfe58a29f8af01e5d2786cc448d8d0f215c233e1893158732c94943e1fe",
+      "input_bytes": 158,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all content after the first delimiter is preserved\n",
+        "preview_truncated": false,
+        "sha256": "afc0b3a902d09917e27f4a4a5ea6bb58f99925ee41f762d83801cf9a569577ac"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 79,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 38,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:50]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "2276ddbd3a6c1fdd9f24816fc0b1ec15d75ec4ff1ce245c8a98d2ddd4df0643b",
+      "input_bytes": 200,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 81,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 39,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[50:100]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "8b56d2915f9802f320ad91b50b433a04f87ab5a3ff23f0bc0295a68f3cc23dd5",
+      "input_bytes": 200,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 80,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 40,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[50:100]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "8b56d2915f9802f320ad91b50b433a04f87ab5a3ff23f0bc0295a68f3cc23dd5",
+      "input_bytes": 200,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 87,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 41,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:75]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "f944f89ae7d17aa5c3e6663696921b74f968207a6d28f30275c627603009c4ff",
+      "input_bytes": 117,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 86,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 42,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[75:150]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "5e8ab8f2556f2596e792ad9d67ac99935a52fb59a3350b74b8d3e40f8659ce8e",
+      "input_bytes": 125,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all content after the first delimiter is preserved\n",
+        "preview_truncated": false,
+        "sha256": "afc0b3a902d09917e27f4a4a5ea6bb58f99925ee41f762d83801cf9a569577ac"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 79,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 43,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:38]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "745f6bb705547ebf8db92a59959b9e3d69940808a317cbaff5f9333cac38d622",
+      "input_bytes": 154,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 79,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 44,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[38:76]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "58b1400b96e10cc47adde205e9e09dc9f7d5e3ad00d3222f83324f2f7c3deea5",
+      "input_bytes": 162,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 79,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 45,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[38:76]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "58b1400b96e10cc47adde205e9e09dc9f7d5e3ad00d3222f83324f2f7c3deea5",
+      "input_bytes": 162,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 81,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 46,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:56]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "2ddfa9d065962c9b3f6e7eea6254b7b513232d7a6cd0e63293ef39cd6da6bd65",
+      "input_bytes": 98,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 80,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 47,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[56:112]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "0abe036593a1ff45651215acdf6ab8492893bf1fb7e42ac3e42adbddecca2018",
+      "input_bytes": 106,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all content after the first delimiter is preserved\n",
+        "preview_truncated": false,
+        "sha256": "afc0b3a902d09917e27f4a4a5ea6bb58f99925ee41f762d83801cf9a569577ac"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 79,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 48,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:28]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "09ed7bf74022b56ca8c559c3c7a20acb74ae2b14184cf571f7d8d1af34f61739",
+      "input_bytes": 130,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 80,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 49,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[28:56]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "e8542ab85318ddd43fd827715ea13ed0274f9b0f88404997739157c35576453f",
+      "input_bytes": 130,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 84,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 50,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[28:56]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "e8542ab85318ddd43fd827715ea13ed0274f9b0f88404997739157c35576453f",
+      "input_bytes": 130,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 86,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 51,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:42]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "2adb7094db44d2f4af1fc7616154b55d021005a144f0ac29670a5fe37d1474f9",
+      "input_bytes": 84,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 82,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 52,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[42:84]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "3dc5bcf4a75b26b3aa04ae65018b454366ce7e5f2320c9b6a79a80589d72983e",
+      "input_bytes": 88,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all content after the first delimiter is preserved\n",
+        "preview_truncated": false,
+        "sha256": "afc0b3a902d09917e27f4a4a5ea6bb58f99925ee41f762d83801cf9a569577ac"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 86,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 53,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:21]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "a10ffae3c821d697643be8379f7e164fa757d944d2d01e59e9fdd2cb90842b39",
+      "input_bytes": 106,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 89,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 54,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[21:42]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "3e99a1fa6c1d4ddac6df5e1ca0a74481a8314790bbb2b1f5471dc9969b7514fa",
+      "input_bytes": 108,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 87,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 55,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[21:42]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "3e99a1fa6c1d4ddac6df5e1ca0a74481a8314790bbb2b1f5471dc9969b7514fa",
+      "input_bytes": 108,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 85,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 56,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:32]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "06c171aa6984de24105947d86d022290010d86b704e4f07dc02d2261b0ec5cdd",
+      "input_bytes": 73,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 84,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 57,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[32:63]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "6ec57ad53e1b1608f1fb877dcc6205f33a43783ba4f499f76191f3c0a48b4e0b",
+      "input_bytes": 77,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all content after the first delimiter is preserved\n",
+        "preview_truncated": false,
+        "sha256": "afc0b3a902d09917e27f4a4a5ea6bb58f99925ee41f762d83801cf9a569577ac"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 78,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 58,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:16]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "fe1568b220a86ec1c245aa420ed02d6aee50161b4517911d130df574f9676ec2",
+      "input_bytes": 89,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 84,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 59,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[16:32]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "eae1209c9fb650b2e705c70a19dab247228ce8ab17f5ec5898a1d4471cdd11be",
+      "input_bytes": 92,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 86,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 60,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[16:32]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "eae1209c9fb650b2e705c70a19dab247228ce8ab17f5ec5898a1d4471cdd11be",
+      "input_bytes": 92,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 91,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 61,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:24]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "f8744eb7282dbe61c3a0eb4b83cff713316f60059cc0611900e7cabbe5d845fe",
+      "input_bytes": 65,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 88,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 62,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[24:47]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "da0823754d15b1fa8826d85171c6a2ef1d78f723f0a65351ee4d828815424a22",
+      "input_bytes": 69,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 83,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 63,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[24:47]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "da0823754d15b1fa8826d85171c6a2ef1d78f723f0a65351ee4d828815424a22",
+      "input_bytes": 69,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 85,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 64,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:12]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "39de08e0857d998b21c21184ced62fea2b46e13c7a9ed61c88f35946d77012d1",
+      "input_bytes": 57,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 86,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 65,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[12:24]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "33bec2e59da0812a10316e25cfddb6d8a947d402f3808d3f0cd7f9ae0521ffa0",
+      "input_bytes": 54,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all content after the first delimiter is preserved\n",
+        "preview_truncated": false,
+        "sha256": "afc0b3a902d09917e27f4a4a5ea6bb58f99925ee41f762d83801cf9a569577ac"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 89,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 66,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:6]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "c0c7d3c0204271ba9ba89ccf10435098eedd90db9a60b3c1ae92c5d4a0b405e8",
+      "input_bytes": 63,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 85,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 67,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[6:12]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "e3baeb4377057ed4e3528faa907df60f2ae2d2660d1c9a63891959cd8516dd30",
+      "input_bytes": 63,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 86,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 68,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[6:12]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "e3baeb4377057ed4e3528faa907df60f2ae2d2660d1c9a63891959cd8516dd30",
+      "input_bytes": 63,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 96,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 69,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:9]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "b3613d0f9e47ccd7f0e7e14638e397de107242c5feed8303e4da65572f64eeff",
+      "input_bytes": 51,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 114,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 70,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[9:18]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "314930b857b6499366db92889788a5c756fa2289985a8cc90cb1ae84ec267305",
+      "input_bytes": 54,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all content after the first delimiter is preserved\n",
+        "preview_truncated": false,
+        "sha256": "afc0b3a902d09917e27f4a4a5ea6bb58f99925ee41f762d83801cf9a569577ac"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 96,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 71,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:5]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "9b9d266cfee1798f4d2bdd0dda7fae87d04dc660e0d3fd2bb1d73d484953b34f",
+      "input_bytes": 58,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 89,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 72,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[5:10]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "851050d962729a236a81ef20272ac8dfb7b578852a50ef7b89a0a1a54cc62617",
+      "input_bytes": 55,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 86,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 73,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[5:10]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "851050d962729a236a81ef20272ac8dfb7b578852a50ef7b89a0a1a54cc62617",
+      "input_bytes": 55,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 97,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 74,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:7]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "2a1e54b1d4c33ff95142d8c87a274e708d4d126b1056c33658cd26ee291de15f",
+      "input_bytes": 48,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 94,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 75,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[7:13]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "2ef5e50822f7eba8cc27bf5ab1eb397409974cfd6e2caa4035b63c7e7a006a5b",
+      "input_bytes": 49,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all content after the first delimiter is preserved\n",
+        "preview_truncated": false,
+        "sha256": "afc0b3a902d09917e27f4a4a5ea6bb58f99925ee41f762d83801cf9a569577ac"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 99,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 76,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:4]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "be7a616814c75e4b6901b04772229f91598e13b2a2111ef36d66606a3fa3fd55",
+      "input_bytes": 51,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 94,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 77,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[4:8]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "d8ca03cd4239b360160efae8421b25b5b47935c2a2ae7e38851aaa18a8e8ce07",
+      "input_bytes": 51,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all content after the first delimiter is preserved\n",
+        "preview_truncated": false,
+        "sha256": "afc0b3a902d09917e27f4a4a5ea6bb58f99925ee41f762d83801cf9a569577ac"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 93,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 78,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[8:12]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "802ba40e05ffeccdf19d02170be819d69380dc933a6d88a1b6cdaa6c3e4fa3ee",
+      "input_bytes": 51,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all content after the first delimiter is preserved\n",
+        "preview_truncated": false,
+        "sha256": "afc0b3a902d09917e27f4a4a5ea6bb58f99925ee41f762d83801cf9a569577ac"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 95,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 79,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[12:13]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "f0b4066eb40ef908e60c3075204b63bf6d5fa9c02587985dafbf749ff290c1f1",
+      "input_bytes": 54,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 93,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 80,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[12:13]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "f0b4066eb40ef908e60c3075204b63bf6d5fa9c02587985dafbf749ff290c1f1",
+      "input_bytes": 54,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 94,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 81,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:6]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "b9f5957a4a2f70d840e28c8946a4ae316479e61088358b200e3572e878881ede",
+      "input_bytes": 48,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 120,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 82,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[6:12]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "70f73b2ee28f668292b3c634c2a92e91152089fa4a5855f4b4a15830d336c47a",
+      "input_bytes": 48,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all content after the first delimiter is preserved\n",
+        "preview_truncated": false,
+        "sha256": "afc0b3a902d09917e27f4a4a5ea6bb58f99925ee41f762d83801cf9a569577ac"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 94,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 83,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:3]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "b347739f4a9fb10e1fb4f19e6a83b1848910789448da70a5dc18e21bf9820187",
+      "input_bytes": 51,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 91,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 84,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[3:6]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "a585ab6f8ce67e5563d1a5c8239b82bd1f574c030b4784c4ff93fe4f7476d87b",
+      "input_bytes": 51,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 91,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 85,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[6:9]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "c3bfc184467610a5042dff9997a663bdb6578a202ffc63160265341c2a927b8c",
+      "input_bytes": 51,
+      "verdict": "uninteresting",
+      "exit_code": 0,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "PASS: all content after the first delimiter is preserved\n",
+        "preview_truncated": false,
+        "sha256": "afc0b3a902d09917e27f4a4a5ea6bb58f99925ee41f762d83801cf9a569577ac"
+      },
+      "stderr": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "duration_ms": 91,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 86,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[9:12]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "248131803ae408858f7e222cfb58837d78836e4f032c7c35f35b6be082804253",
+      "input_bytes": 51,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 92,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 87,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[9:12]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "248131803ae408858f7e222cfb58837d78836e4f032c7c35f35b6be082804253",
+      "input_bytes": 51,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 91,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 88,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:5]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "4fedfa724f9ec51c7b3207bf9915f4176de8c20e7a6713fb0997610bf88449ff",
+      "input_bytes": 46,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 106,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 89,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[5:9]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "ad7089dfaff7806ac568f0d695b9f2b7f4155162a67d478a15d0cac371483f3d",
+      "input_bytes": 47,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 95,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 90,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:3]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "aa4f833cfb30ad7df8d104e27d16f598c77be5ec58556304b5e431cfb8f0b50a",
+      "input_bytes": 48,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 91,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 91,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[3:6]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "26880c39ed4e1fa784644e87a12aa7de49e0d1130c779a41e439cf51f7d81e32",
+      "input_bytes": 48,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 102,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 92,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:2]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "8fc0163126ee8b23bfe2d9dbdf62b91e4d3e7d12013464305df16e23c6dcde86",
+      "input_bytes": 49,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 90,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 93,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[2:4]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "eec0e41a6da8803b6064821eb3c0b493cccd5ed71b7f4497ea1c315e8d5a4d99",
+      "input_bytes": 49,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 92,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 94,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[4:6]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "ddbf562311b308927d74dc951368d9d23ba9875be09c782e03ac7bb945c510e1",
+      "input_bytes": 49,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 108,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 95,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[6:8]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "78d497f6106e2bc8e5d78b72a411f89dca19aa7d5c8b150d2409cd4d31cd0aee",
+      "input_bytes": 49,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 116,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 96,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[6:8]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "78d497f6106e2bc8e5d78b72a411f89dca19aa7d5c8b150d2409cd4d31cd0aee",
+      "input_bytes": 49,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 133,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 97,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:4]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "88f918dc13eb99f4dd240a0a22206db88292eff4b1b8892cbf3607edf39e34b3",
+      "input_bytes": 45,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 125,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 98,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[4:7]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "c217b46cb074ea435a8682aeae3f2ca852bac895b630793177054a98625ccb02",
+      "input_bytes": 46,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 105,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 99,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:2]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "79fa40b4d736090bdbbb7c9d3fc33a7c1435ac907321457a92a8ae58c80c37c5",
+      "input_bytes": 47,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 103,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 100,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[2:4]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "e6dbe7b8b26a33deb38143b5f7a3e8c87e6d2e4804c574d7c13f6293c335246e",
+      "input_bytes": 47,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 99,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 101,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:1]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "f3a4a1a2189d5dd3a9ee29ca6e24218d6baa0a549be34fe2d5f0ec5260964236",
+      "input_bytes": 48,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 89,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 102,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[1:2]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "f970838c1a90010c4001818045427ba8c5f4b01c4e499d04a7dbfe38e2ba9c77",
+      "input_bytes": 48,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 92,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 103,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[2:3]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "6da7a627bcc91aae309d256529f2f19de1d8f5533378ced161f3d90a5c952613",
+      "input_bytes": 48,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 91,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 104,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[3:4]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "f71ccf2528d97cc4bc61e929d3075434490df6963b3c1b96e8edea99530ac518",
+      "input_bytes": 48,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 96,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 105,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[4:5]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "bec8ae361004f2db5942de9a30dad137b7008a6dc54ec6466a3b17a9b47dae08",
+      "input_bytes": 48,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 89,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 106,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[5:6]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "6d9ee36f09d92ca4494e80cba48ec7198c3f9c022f99b17be0d1e34a60bc853d",
+      "input_bytes": 48,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 92,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 107,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[5:6]",
+      "path": "/message",
+      "repeat": 2,
+      "input_sha256": "6d9ee36f09d92ca4494e80cba48ec7198c3f9c022f99b17be0d1e34a60bc853d",
+      "input_bytes": 48,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 83,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 108,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:3]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "8e9d720bb30441c96d1b41dbf020785e48f616f429288b9688ef4a7aa1eed5c7",
+      "input_bytes": 45,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 82,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 109,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[3:6]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "c1fa8c45b256091a64575ece07819770fbe38ead215120761417c2c5a688a51e",
+      "input_bytes": 45,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 82,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 110,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:2]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "23435397d53423b18a79f454065a5f20d1150a4659702f8934622ceb611f0206",
+      "input_bytes": 46,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 85,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 111,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[2:4]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "ead00b4c4291925316668ebb2d7b6c8dcdcccc56a93a7af8519008fb7ed3ae4f",
+      "input_bytes": 46,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 84,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 112,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[0:1]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "4eed1a9d30c15f6cffffc9ae36a96e1cecfa25a42caa4fa6dde2359833c0fd4e",
+      "input_bytes": 47,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 88,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 113,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[1:2]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "4f1bb17019412d6264eed45e1bd2926903dc16eb0f5361b4626588c4213d0601",
+      "input_bytes": 47,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 83,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 114,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[2:3]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "a1c27deb90d7b6a01ee711f47b1fdd305b1f509c70de84825231e63847353f00",
+      "input_bytes": 47,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 80,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 115,
+      "phase": "candidate",
+      "operation": "remove_string_chunks[3:4]",
+      "path": "/message",
+      "repeat": 1,
+      "input_sha256": "cb2e45cbedfef9ea4c084fce3829071415e346ac0e296199a41df63075988f17",
+      "input_bytes": 47,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 81,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 116,
+      "phase": "final",
+      "repeat": 1,
+      "input_sha256": "6d9ee36f09d92ca4494e80cba48ec7198c3f9c022f99b17be0d1e34a60bc853d",
+      "input_bytes": 48,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 82,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 117,
+      "phase": "final",
+      "repeat": 2,
+      "input_sha256": "6d9ee36f09d92ca4494e80cba48ec7198c3f9c022f99b17be0d1e34a60bc853d",
+      "input_bytes": 48,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 80,
+      "error": null,
+      "input_unchanged": true
+    }
+  ],
+  "reduction": {
+    "candidates_tested": 92,
+    "accepted_reductions": 19,
+    "reason": "fixed_point",
+    "trace": [
+      {
+        "operation": "remove_object_members[1:3]",
+        "path": "",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[2:4]",
+        "path": "",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_object_members[1:2]",
+        "path": "",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:2526]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:1263]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[1263:2526]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:632]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[632:1264]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:947]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[947:1894]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:474]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[474:948]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:710]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[710:1420]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:355]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[355:710]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:178]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[178:356]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:266]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[266:532]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:133]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[133:266]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:200]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[200:399]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:100]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[100:200]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:50]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[50:100]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:75]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[75:150]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:38]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[38:76]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:56]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[56:112]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:28]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[28:56]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:42]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[42:84]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:21]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[21:42]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:32]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[32:63]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:16]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[16:32]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:24]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[24:47]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:12]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[12:24]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:6]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[6:12]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:9]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[9:18]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:5]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[5:10]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:7]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[7:13]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:4]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[4:8]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[8:12]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[12:13]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:6]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[6:12]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:3]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[3:6]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[6:9]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[9:12]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:5]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[5:9]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:3]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[3:6]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:2]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[2:4]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[4:6]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[6:8]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:4]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[4:7]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:2]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[2:4]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:1]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[1:2]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[2:3]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[3:4]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[4:5]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[5:6]",
+        "path": "/message",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_string_chunks[0:3]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[3:6]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:2]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[2:4]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[0:1]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[1:2]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[2:3]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_string_chunks[3:4]",
+        "path": "/message",
+        "verdict": "uninteresting",
+        "accepted": false
+      }
+    ]
+  },
+  "result": {
+    "path": "reduced.json",
+    "sha256": "6d9ee36f09d92ca4494e80cba48ec7198c3f9c022f99b17be0d1e34a60bc853d",
+    "bytes": 48
+  },
+  "final_confirmations": 2
+}

@@ -1,0 +1,221 @@
+{
+  "scope": "Independent local developer workflow using an intentional demonstration bug; not a blind production discovery.",
+  "node_version": "v22.14.0",
+  "command_working_directory": ".",
+  "sanitization": "Absolute scratch paths in reports and captured output were replaced with relative paths after execution. Metrics, statuses, signatures, fixture contents and hashes were not altered.",
+  "comparison": [
+    {
+      "mode": "default",
+      "status": "reduced",
+      "verified": true,
+      "shrink_strings": false,
+      "source_bytes": 4007,
+      "normalized_bytes": 4007,
+      "result_bytes": 2760,
+      "bytes_removed": 1247,
+      "reduction_percent": 31.121,
+      "oracle_runs": 10,
+      "max_runs": 400,
+      "final_confirmations": 2,
+      "candidates_tested": 3,
+      "accepted_reductions": 1,
+      "reason": "fixed_point",
+      "verdicts": {
+        "interesting": 8,
+        "uninteresting": 2
+      },
+      "oracle_duration_ms": 811,
+      "timeouts": 0,
+      "output_overflows": 0,
+      "schemaVersion": 1,
+      "message_code_points": 2526,
+      "message_unchanged": true,
+      "result_sha256": "87a4b0d03cbe34bb0de5eb215811b10ac85fd40602becbc4ab538dc6617959bd",
+      "source_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+      "result_path": "results/default/reduced.json",
+      "report_path": "results/default/report.json",
+      "final_replays": [
+        {
+          "index": 9,
+          "verdict": "interesting",
+          "exit_code": 1,
+          "stderr": "REPRO: truncated-message\n"
+        },
+        {
+          "index": 10,
+          "verdict": "interesting",
+          "exit_code": 1,
+          "stderr": "REPRO: truncated-message\n"
+        }
+      ]
+    },
+    {
+      "mode": "strings",
+      "status": "reduced",
+      "verified": true,
+      "shrink_strings": true,
+      "source_bytes": 4007,
+      "normalized_bytes": 4007,
+      "result_bytes": 48,
+      "bytes_removed": 3959,
+      "reduction_percent": 98.802,
+      "oracle_runs": 117,
+      "max_runs": 400,
+      "final_confirmations": 2,
+      "candidates_tested": 92,
+      "accepted_reductions": 19,
+      "reason": "fixed_point",
+      "verdicts": {
+        "interesting": 44,
+        "uninteresting": 73
+      },
+      "oracle_duration_ms": 10367,
+      "timeouts": 0,
+      "output_overflows": 0,
+      "schemaVersion": 1,
+      "message_code_points": 6,
+      "message_unchanged": false,
+      "result_sha256": "6d9ee36f09d92ca4494e80cba48ec7198c3f9c022f99b17be0d1e34a60bc853d",
+      "source_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+      "result_path": "results/strings/reduced.json",
+      "report_path": "results/strings/report.json",
+      "final_replays": [
+        {
+          "index": 116,
+          "verdict": "interesting",
+          "exit_code": 1,
+          "stderr": "REPRO: truncated-message\n"
+        },
+        {
+          "index": 117,
+          "verdict": "interesting",
+          "exit_code": 1,
+          "stderr": "REPRO: truncated-message\n"
+        }
+      ]
+    },
+    {
+      "mode": "strings-final",
+      "status": "reduced",
+      "verified": true,
+      "shrink_strings": true,
+      "source_bytes": 4007,
+      "normalized_bytes": 4007,
+      "result_bytes": 48,
+      "bytes_removed": 3959,
+      "reduction_percent": 98.802,
+      "oracle_runs": 117,
+      "max_runs": 400,
+      "final_confirmations": 2,
+      "candidates_tested": 92,
+      "accepted_reductions": 19,
+      "reason": "fixed_point",
+      "verdicts": {
+        "interesting": 44,
+        "uninteresting": 73
+      },
+      "oracle_duration_ms": 11995,
+      "timeouts": 0,
+      "output_overflows": 0,
+      "schemaVersion": 1,
+      "message_code_points": 6,
+      "message_unchanged": false,
+      "result_sha256": "6d9ee36f09d92ca4494e80cba48ec7198c3f9c022f99b17be0d1e34a60bc853d",
+      "source_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+      "result_path": "results/strings-final/reduced.json",
+      "report_path": "results/strings-final/report.json",
+      "final_replays": [
+        {
+          "index": 116,
+          "verdict": "interesting",
+          "exit_code": 1,
+          "stderr": "REPRO: truncated-message\n"
+        },
+        {
+          "index": 117,
+          "verdict": "interesting",
+          "exit_code": 1,
+          "stderr": "REPRO: truncated-message\n"
+        }
+      ]
+    }
+  ],
+  "regression_tests": [
+    {
+      "label": "before-fix-regressions",
+      "command": [
+        "node",
+        "--test",
+        "tests/service.test.mjs"
+      ],
+      "exit_code": 1,
+      "duration_ms": 374.553,
+      "tests": 12,
+      "pass": 2,
+      "fail": 10,
+      "reported_test_duration_ms": 313.2741
+    },
+    {
+      "label": "after-fix-regressions",
+      "command": [
+        "node",
+        "--test",
+        "tests/service.test.mjs"
+      ],
+      "exit_code": 0,
+      "duration_ms": 404.806,
+      "tests": 12,
+      "pass": 12,
+      "fail": 0,
+      "reported_test_duration_ms": 340.0281
+    }
+  ],
+  "preservation": {
+    "algorithm": "SHA-256",
+    "files": [
+      {
+        "file": "input.json",
+        "initial_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+        "original_final_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+        "scratch_final_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+        "original_unchanged": true,
+        "scratch_unchanged": true
+      },
+      {
+        "file": "check.mjs",
+        "initial_sha256": "bb94d321618b225d412f0823bc995a3b45eafbb276abad35d840d6d4823cfd73",
+        "original_final_sha256": "bb94d321618b225d412f0823bc995a3b45eafbb276abad35d840d6d4823cfd73",
+        "scratch_final_sha256": "bb94d321618b225d412f0823bc995a3b45eafbb276abad35d840d6d4823cfd73",
+        "original_unchanged": true,
+        "scratch_unchanged": true
+      },
+      {
+        "file": "oracle.json",
+        "initial_sha256": "488a1dbd6865c96a41ad5e85b66523285bb51524caacca01b597c9194995dadf",
+        "original_final_sha256": "488a1dbd6865c96a41ad5e85b66523285bb51524caacca01b597c9194995dadf",
+        "scratch_final_sha256": "488a1dbd6865c96a41ad5e85b66523285bb51524caacca01b597c9194995dadf",
+        "original_unchanged": true,
+        "scratch_unchanged": true
+      },
+      {
+        "file": "service.mjs",
+        "initial_sha256": "cb811e2c3f6b78e98a60b6db315d345816681003571d2383bd6f0729d19f2ced",
+        "original_final_sha256": "cb811e2c3f6b78e98a60b6db315d345816681003571d2383bd6f0729d19f2ced",
+        "scratch_final_sha256": "e55a91215e8d04e74a968c651397b3fd85abf94d03d8c6e12c6bb75af95064eb",
+        "original_unchanged": true,
+        "scratch_unchanged": false
+      }
+    ],
+    "buggy_service_backup": {
+      "path": "examples/message/service.before.mjs",
+      "sha256": "cb811e2c3f6b78e98a60b6db315d345816681003571d2383bd6f0729d19f2ced",
+      "matches_initial": true
+    }
+  },
+  "focused_fixture": {
+    "path": "focused-fixture.json",
+    "bytes": 48,
+    "sha256": "6d9ee36f09d92ca4494e80cba48ec7198c3f9c022f99b17be0d1e34a60bc853d"
+  },
+  "prior_version_note": "The strings run began before the parent announced its implementation freeze. strings-final was started after that notice; the default mode was unchanged. Both text results are retained."
+}

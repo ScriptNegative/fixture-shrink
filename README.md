@@ -4,7 +4,7 @@
 
 **Make the failing JSON smaller. Keep the failure reproducible.**
 
-Large fixture, obscure bug, too much irrelevant data. FixtureShrink removes JSON object members and array chunks, then reruns your existing test command to check that the intended failure still appears.
+Large fixture, obscure bug, too much irrelevant data. FixtureShrink removes JSON object members and array chunks, then reruns your existing test command to check that the intended failure still appears. Opt into string-value reduction when the noise is inside a message or payload field.
 
 A portable **Agent Skill** with an optional **zero-dependency Node.js CLI**. No service, API key, or model download is needed by the helper.
 
@@ -32,6 +32,22 @@ This is a planted, reproducible example — not a production incident or a perfo
 
 In the recorded local run, **34 products / 13,548 bytes became 2 products / 235 bytes** after 81 oracle invocation attempts. Both final replays produced the target signature. [Evidence and limitations](evals/results.md).
 
+## New in v0.2: reduce the text inside JSON
+
+Structural deletion cannot shorten one long message that contains the bug. `--shrink-strings` also removes chunks from string values, while keeping the same failure checks, protected values, and run budget.
+
+Try the message decoder example in two new directories:
+
+```sh
+node skills/fixture-shrink/scripts/shrink.mjs examples/message/input.json --oracle examples/message/oracle.json --out message-structure --max-runs 200
+node skills/fixture-shrink/scripts/shrink.mjs examples/message/input.json --oracle examples/message/oracle.json --out message-repro --max-runs 400 --shrink-strings
+node examples/message/check.mjs message-repro/reduced.json
+```
+
+The planted decoder splits a `note:` envelope at every colon and loses the rest of its content. The checker requires `REPRO: truncated-message`, rather than accepting an unrelated validation error. Compare both reduced files and their actual reports. String mode deletes Unicode code points, keeping surrogate pairs together; it does not normalize text or preserve whole grapheme clusters such as every combining sequence or joined emoji.
+
+In the recorded local runs, the 4,007-byte input became **2,760 bytes with structural deletion** and **48 bytes with string mode** (`note::`). They used 10 and 117 oracle invocations respectively, with both final replays matching in each run. This demonstrates the difference on this planted fixture, not a general speed or cost improvement. [Recorded evidence](evals/results.md).
+
 ## What you get
 
 | Before | After a verified run |
@@ -42,6 +58,7 @@ In the recorded local run, **34 products / 13,548 bytes became 2 products / 235 
 
 - **Preserve the failure you mean.** Require both the configured exit code and a distinctive substring on stdout or stderr.
 - **Keep required values.** Pin JSON pointers such as `/schemaVersion`.
+- **Shorten payload text when useful.** Enable `--shrink-strings`; string values stay unchanged by default.
 - **Bound repeated work.** Limit oracle invocation attempts, per-run time, and captured output.
 - **Review the evidence.** Baselines, accepted reductions, and final replays are recorded locally.
 
@@ -97,11 +114,11 @@ The run cap includes these checks. At the minimum of six runs, there is room for
 
 ## Scope and limits
 
-FixtureShrink deletes structure; it does not change scalar values, reduce source code, or discover a root cause. A matching output fragment is only as specific as your oracle. Repeated checks catch some flaky behavior, but cannot prove determinism or global minimality. The oracle must accept an arbitrary candidate path; filename-sensitive failures need a suitable wrapper.
+FixtureShrink deletes structure and, when explicitly enabled, chunks from string values. It never rewrites object keys, numbers, booleans, null values, or JSON types. It does not reduce source code or discover a root cause. A matching output fragment is only as specific as your oracle. Repeated checks catch some flaky behavior, but cannot prove determinism or global minimality. The oracle must accept an arbitrary candidate path; filename-sensitive failures need a suitable wrapper.
 
 Input is limited to 1 MiB of UTF-8 JSON. Parsing and serialization normalize whitespace and duplicate keys. Unsafe integer values and nonfinite numeric results are rejected. Use a different reducer for formatting-sensitive JSON parser bugs. Reduced fixtures and reports may still contain secrets; inspect them before sharing.
 
-See the [full CLI reference](skills/fixture-shrink/references/cli.md), [existing alternatives](docs/alternatives.md), and [catalog example](examples/catalog).
+See the [full CLI reference](skills/fixture-shrink/references/cli.md), [existing alternatives](docs/alternatives.md), [catalog example](examples/catalog), and [message example](examples/message).
 
 ## Contribute
 

@@ -108,7 +108,30 @@ function sizes(length) {
   return result;
 }
 
-function* transformations(root, node = root, tokens = []) {
+const prefix = (ancestor, tokens) => ancestor.length <= tokens.length && ancestor.every((token, index) => token === tokens[index]);
+
+function* transformations(root, node = root, tokens = [], shrinkStrings = false, guards = []) {
+  // A preserved node protects all descendants. Avoid enumerating a potentially
+  // large protected string (or subtree) only to reject every candidate later.
+  if (guards.some(guard => prefix(guard.tokens, tokens))) return;
+  if (typeof node === 'string') {
+    if (!shrinkStrings) return;
+    const characters = Array.from(node);
+    for (const size of sizes(characters.length)) {
+      // Coarse, nonoverlapping partitions avoid spending the process budget on
+      // almost-identical long substrings. Size one still visits every position.
+      for (let start = 0; start < characters.length; start += size) {
+        const end = Math.min(start + size, characters.length);
+        const replacement = [...characters.slice(0, start), ...characters.slice(end)].join('');
+        yield {
+          value: replacing(root, tokens, replacement),
+          operation: `remove_string_chunks[${start}:${end}]`,
+          path: pointer(tokens)
+        };
+      }
+    }
+    return;
+  }
   if (node === null || typeof node !== 'object') return;
   const keys = Object.keys(node);
   for (const size of sizes(keys.length)) {
@@ -129,14 +152,15 @@ function* transformations(root, node = root, tokens = []) {
       };
     }
   }
-  for (const key of keys) yield* transformations(root, node[key], [...tokens, key]);
+  for (const key of keys) yield* transformations(root, node[key], [...tokens, key], shrinkStrings, guards);
 }
 
 export async function minimize(input, options = {}) {
   if (!plain(options)) fail('options must be an object');
-  for (const key of Object.keys(options)) if (!['test', 'maxCandidates', 'preserve'].includes(key)) fail(`Unknown reducer option: ${key}`);
-  const {test, maxCandidates = 100, preserve = []} = options;
+  for (const key of Object.keys(options)) if (!['test', 'maxCandidates', 'preserve', 'shrinkStrings'].includes(key)) fail(`Unknown reducer option: ${key}`);
+  const {test, maxCandidates = 100, preserve = [], shrinkStrings = false} = options;
   if (typeof test !== 'function') fail('test must be a callback');
+  if (typeof shrinkStrings !== 'boolean') fail('shrinkStrings must be a boolean');
   if (!Number.isSafeInteger(maxCandidates) || maxCandidates < 0) fail('maxCandidates must be a non-negative safe integer');
   const guards = validatePreserve(input, preserve);
   let value = clone(input);
@@ -147,11 +171,11 @@ export async function minimize(input, options = {}) {
   const cache = new Map();
   const result = reason => ({value, candidates_tested, accepted_reductions, reason, trace});
   if (guards.some(guard => guard.tokens.length === 0)) return result('fixed_point');
-  if (maxCandidates === 0) return result(value !== null && typeof value === 'object' && Object.keys(value).length ? 'budget_exhausted' : 'fixed_point');
+  if (maxCandidates === 0) return result((value !== null && typeof value === 'object' && Object.keys(value).length) || (shrinkStrings && typeof value === 'string' && value.length) ? 'budget_exhausted' : 'fixed_point');
   while (true) {
     const currentBytes = bytes(value);
     let accepted = false;
-    for (const candidate of transformations(value)) {
+    for (const candidate of transformations(value, value, [], shrinkStrings, guards)) {
       const json = JSON.stringify(candidate.value);
       if (Buffer.byteLength(json, 'utf8') >= currentBytes) continue;
       if (guards.some(guard => {

@@ -1,0 +1,181 @@
+{
+  "node_version": "v22.14.0",
+  "records": [
+    {
+      "label": "before-fix-original",
+      "command": [
+        "node",
+        "examples/message/check.mjs",
+        "examples/message/input.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "signal": null,
+      "error": null,
+      "duration_ms": 104.546,
+      "stdout": "",
+      "stderr": "REPRO: truncated-message\n"
+    },
+    {
+      "label": "reduce-default",
+      "command": [
+        "node",
+        "../fixture-shrink/skills/fixture-shrink/scripts/shrink.mjs",
+        "examples/message/input.json",
+        "--oracle",
+        "examples/message/oracle.json",
+        "--out",
+        "results/default",
+        "--max-runs",
+        "400"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "signal": null,
+      "error": null,
+      "duration_ms": 98.674,
+      "stdout": "",
+      "stderr": "FixtureShrink: ENOENT: no such file or directory, mkdir '.\\results\\default'\n"
+    },
+    {
+      "label": "before-fix-original",
+      "command": [
+        "node",
+        "examples/message/check.mjs",
+        "examples/message/input.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "signal": null,
+      "error": null,
+      "duration_ms": 66.838,
+      "stdout": "",
+      "stderr": "REPRO: truncated-message\n"
+    },
+    {
+      "label": "reduce-default",
+      "command": [
+        "node",
+        "../fixture-shrink/skills/fixture-shrink/scripts/shrink.mjs",
+        "examples/message/input.json",
+        "--oracle",
+        "examples/message/oracle.json",
+        "--out",
+        "results/default",
+        "--max-runs",
+        "400"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "duration_ms": 921.633,
+      "stdout": "{\n  \"status\": \"reduced\",\n  \"verified\": true,\n  \"original_bytes\": 4007,\n  \"normalized_bytes\": 4007,\n  \"result_bytes\": 2760,\n  \"oracle_runs\": 10,\n  \"max_runs\": 400,\n  \"output\": \".\\\\results\\\\default\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "label": "before-fix-default",
+      "command": [
+        "node",
+        "examples/message/check.mjs",
+        "results/default/reduced.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "signal": null,
+      "error": null,
+      "duration_ms": 64.369,
+      "stdout": "",
+      "stderr": "REPRO: truncated-message\n"
+    },
+    {
+      "label": "reduce-strings",
+      "command": [
+        "node",
+        "../fixture-shrink/skills/fixture-shrink/scripts/shrink.mjs",
+        "examples/message/input.json",
+        "--oracle",
+        "examples/message/oracle.json",
+        "--out",
+        "results/strings",
+        "--max-runs",
+        "400",
+        "--shrink-strings"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "duration_ms": 10768.27,
+      "stdout": "{\n  \"status\": \"reduced\",\n  \"verified\": true,\n  \"original_bytes\": 4007,\n  \"normalized_bytes\": 4007,\n  \"result_bytes\": 48,\n  \"oracle_runs\": 117,\n  \"max_runs\": 400,\n  \"output\": \".\\\\results\\\\strings\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "label": "before-fix-strings",
+      "command": [
+        "node",
+        "examples/message/check.mjs",
+        "results/strings/reduced.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "signal": null,
+      "error": null,
+      "duration_ms": 76.737,
+      "stdout": "",
+      "stderr": "REPRO: truncated-message\n"
+    },
+    {
+      "label": "before-fix-original",
+      "command": [
+        "node",
+        "examples/message/check.mjs",
+        "examples/message/input.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "signal": null,
+      "error": null,
+      "duration_ms": 149.685,
+      "stdout": "",
+      "stderr": "REPRO: truncated-message\n"
+    },
+    {
+      "label": "reduce-strings-final",
+      "command": [
+        "node",
+        "../fixture-shrink/skills/fixture-shrink/scripts/shrink.mjs",
+        "examples/message/input.json",
+        "--oracle",
+        "examples/message/oracle.json",
+        "--out",
+        "results/strings-final",
+        "--max-runs",
+        "400",
+        "--shrink-strings"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "duration_ms": 12502.478,
+      "stdout": "{\n  \"status\": \"reduced\",\n  \"verified\": true,\n  \"original_bytes\": 4007,\n  \"normalized_bytes\": 4007,\n  \"result_bytes\": 48,\n  \"oracle_runs\": 117,\n  \"max_runs\": 400,\n  \"output\": \".\\\\results\\\\strings-final\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "label": "before-fix-strings-final",
+      "command": [
+        "node",
+        "examples/message/check.mjs",
+        "results/strings-final/reduced.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "signal": null,
+      "error": null,
+      "duration_ms": 81.914,
+      "stdout": "",
+      "stderr": "REPRO: truncated-message\n"
+    }
+  ]
+}

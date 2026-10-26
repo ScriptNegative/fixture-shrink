@@ -1,0 +1,334 @@
+{
+  "format": 1,
+  "tool": "FixtureShrink",
+  "version": "0.2.0",
+  "created_at": "2026-10-26T21:48:36.716Z",
+  "status": "reduced",
+  "verified": true,
+  "source": {
+    "path": "./examples/message/input.json",
+    "sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+    "bytes": 4007
+  },
+  "oracle": {
+    "command": [
+      "node",
+      "examples/message/check.mjs",
+      "{input}"
+    ],
+    "expect": {
+      "exit_code": 1,
+      "stream": "stderr",
+      "includes": "REPRO: truncated-message"
+    },
+    "timeout_ms": 3000,
+    "max_output_bytes": 65536,
+    "preserve": [
+      "/schemaVersion"
+    ],
+    "cwd": "."
+  },
+  "limits": {
+    "max_runs": 400
+  },
+  "reduction_options": {
+    "shrink_strings": false
+  },
+  "normalization": {
+    "json_parse_stringify": true,
+    "bytes": 4007,
+    "sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+    "note": "Whitespace, number spelling, object-key ordering, and duplicate-key representation are normalized by JavaScript JSON parsing/serialization."
+  },
+  "runs": [
+    {
+      "index": 1,
+      "phase": "baseline-original",
+      "repeat": 1,
+      "input_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+      "input_bytes": 4007,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 83,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 2,
+      "phase": "baseline-original",
+      "repeat": 2,
+      "input_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+      "input_bytes": 4007,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 82,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 3,
+      "phase": "baseline-normalized",
+      "repeat": 1,
+      "input_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+      "input_bytes": 4007,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 80,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 4,
+      "phase": "baseline-normalized",
+      "repeat": 2,
+      "input_sha256": "792e5589a0215e3ca8648b1491a8e09de6520d8ea8d63bd90ef4ede390d0c3a1",
+      "input_bytes": 4007,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 79,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 5,
+      "phase": "candidate",
+      "operation": "remove_object_members[1:3]",
+      "path": "",
+      "repeat": 1,
+      "input_sha256": "d3b2b0f6f44b0558e0dcccac07e641fd12b9a3f0ade9a2a157529a7067c7b437",
+      "input_bytes": 652,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 82,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 6,
+      "phase": "candidate",
+      "operation": "remove_object_members[2:4]",
+      "path": "",
+      "repeat": 1,
+      "input_sha256": "87a4b0d03cbe34bb0de5eb215811b10ac85fd40602becbc4ab538dc6617959bd",
+      "input_bytes": 2760,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 83,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 7,
+      "phase": "candidate",
+      "operation": "remove_object_members[2:4]",
+      "path": "",
+      "repeat": 2,
+      "input_sha256": "87a4b0d03cbe34bb0de5eb215811b10ac85fd40602becbc4ab538dc6617959bd",
+      "input_bytes": 2760,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 81,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 8,
+      "phase": "candidate",
+      "operation": "remove_object_members[1:2]",
+      "path": "",
+      "repeat": 1,
+      "input_sha256": "609b0270c380969286ce2be72aad387758e8169c221f93c3bb14a4b352c5e65c",
+      "input_bytes": 25,
+      "verdict": "uninteresting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "VALIDATION: expected note: followed by nonempty content\n",
+        "preview_truncated": false,
+        "sha256": "d7ae96966766e7996abfdea98e508575a4f0bbdff8db22e52b62e22d627a46d4"
+      },
+      "duration_ms": 80,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 9,
+      "phase": "final",
+      "repeat": 1,
+      "input_sha256": "87a4b0d03cbe34bb0de5eb215811b10ac85fd40602becbc4ab538dc6617959bd",
+      "input_bytes": 2760,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 80,
+      "error": null,
+      "input_unchanged": true
+    },
+    {
+      "index": 10,
+      "phase": "final",
+      "repeat": 2,
+      "input_sha256": "87a4b0d03cbe34bb0de5eb215811b10ac85fd40602becbc4ab538dc6617959bd",
+      "input_bytes": 2760,
+      "verdict": "interesting",
+      "exit_code": 1,
+      "signal": null,
+      "timed_out": false,
+      "output_limited": false,
+      "stdout": {
+        "preview": "",
+        "preview_truncated": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "preview": "REPRO: truncated-message\n",
+        "preview_truncated": false,
+        "sha256": "19bdf3c7e99a3675152b800da5d5f55fafd6e772e4ff129270c86d5d2804c993"
+      },
+      "duration_ms": 81,
+      "error": null,
+      "input_unchanged": true
+    }
+  ],
+  "reduction": {
+    "candidates_tested": 3,
+    "accepted_reductions": 1,
+    "reason": "fixed_point",
+    "trace": [
+      {
+        "operation": "remove_object_members[1:3]",
+        "path": "",
+        "verdict": "uninteresting",
+        "accepted": false
+      },
+      {
+        "operation": "remove_object_members[2:4]",
+        "path": "",
+        "verdict": "interesting",
+        "accepted": true
+      },
+      {
+        "operation": "remove_object_members[1:2]",
+        "path": "",
+        "verdict": "uninteresting",
+        "accepted": false
+      }
+    ]
+  },
+  "result": {
+    "path": "reduced.json",
+    "sha256": "87a4b0d03cbe34bb0de5eb215811b10ac85fd40602becbc4ab538dc6617959bd",
+    "bytes": 2760
+  },
+  "final_confirmations": 2
+}

@@ -6,7 +6,7 @@ These are drafts for the maintainer to review and publish. No outreach or social
 
 FixtureShrink turns a bulky failing JSON fixture into a smaller reproducer you can inspect. It deletes JSON structure and reruns your existing command, requiring the intended exit code and output signature before accepting a change.
 
-The portable Agent Skill helps an agent establish a useful oracle and interpret the evidence. The optional Node.js helper needs no package installation and can run independently.
+The portable Agent Skill helps an agent establish a useful oracle and interpret the evidence. The optional Node.js helper needs no package installation and can run independently. Version 0.2 adds opt-in Unicode code-point deletion inside string values, using the same failure checks, protected values, and process budget as structural reduction.
 
 ## GitHub description
 
@@ -22,6 +22,10 @@ Shrink failing JSON into smaller reproducible fixtures. Portable Agent Skill, ze
 6. Show the recorded run budget and final replays. Explain that this is a smaller observed reproducer, not a proof of the cause or smallest possible input.
 
 Use measured values from that run. Do not substitute illustrative counts for real timings, byte sizes, or oracle invocations.
+
+## Version 0.2 demo: noise inside one string
+
+Use `examples/message/input.json` and its local decoder checker. Run structural mode and `--shrink-strings` into separate directories, then compare the message values and actual reports. The planted service loses everything after a second colon. Replay the final candidate to show the same `REPRO: truncated-message` signature. Explain that string mode is optional and operates on code points, not grapheme clusters; it does not rewrite object keys or numeric values. Quote only sizes and invocation counts produced by the recorded run.
 
 ## Developer community draft
 

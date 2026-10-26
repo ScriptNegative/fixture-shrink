@@ -1,0 +1,11 @@
+{
+  "command": ["node", "examples/message/check.mjs", "{input}"],
+  "expect": {
+    "exit_code": 1,
+    "stream": "stderr",
+    "includes": "REPRO: truncated-message"
+  },
+  "timeout_ms": 3000,
+  "max_output_bytes": 65536,
+  "preserve": ["/schemaVersion"]
+}
